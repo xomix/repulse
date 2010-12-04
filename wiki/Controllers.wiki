@@ -1,0 +1,43 @@
+#labels Repulse,MIDI,Controllers
+===Channel 10===
+||_controller_||_engine_||_sound01_||_sound02_||_sound03_||_sound04_||_sound05_||_sound06_||_sound07_||_sound08_||
+||_engine linked_||2||-||-||-||-||-||-||-||-||
+||_engine transpose_||4||-||-||-||-||-||-||-||-||
+||_engine stretch_||5||-||-||-||-||-||-||-||-||
+||_engine volume_||7||-||-||-||-||-||-||-||-||
+||_sound start_||-||8||22||36||50||64||78||92||106||
+||_sound start soft_||-||9||23||37||51||65||79||93||107||
+||_sound transpose_||-||10||24||38||52||66||80||94||108||
+||_sound stretch_||-||11||25||39||53||67||81||95||109||
+||_sound over drive_||-||12||26||40||54||68||82||96||110||
+||_sound over drive active_||-||13||27||41||55||69||83||97||111||
+||_sound filter frequency_||-||14||28||42||56||70||84||98||112||
+||_sound filter active_||-||15||29||43||57||71||85||99||113||
+||_sound filter resonance_||-||16||30||44||58||72||86||100||114||
+||_sound decay_||-||17||31||45||59||73||87||101||115||
+||_sound panning_||-||18||32||46||60||74||88||102||116||
+||_sound volume_||-||19||33||47||61||75||89||103||117||
+||_engine all sound off_||120||-||-||-||-||-||-||-||-||
+||_engine all controllers off_||121||-||-||-||-||-||-||-||-||
+||_engine local keyboard_||122||-||-||-||-||-||-||-||-||
+||_engine all notes off_||123||-||-||-||-||-||-||-||-||
+||_engine omni mode off_||124||-||-||-||-||-||-||-||-||
+||_engine omni mode on_||125||-||-||-||-||-||-||-||-||
+||_engine mono operation_||126||-||-||-||-||-||-||-||-||
+||_engine poly operation_||127||-||-||-||-||-||-||-||-||
+
+===Channel 11===
+||_controller_||_engine_||_sound01_||_sound02_||_sound03_||_sound04_||_sound05_||_sound06_||_sound07_||_sound08_||
+||_sound transpose velocity_||-||8||22||36||50||64||78||92||106||
+||_sound transpose random_||-||9||23||37||51||65||79||93||107||
+||_sound stretch velocity_||-||10||24||38||52||66||80||94||108||
+||_sound stretch type_||-||11||25||39||53||67||81||95||109||
+||_sound filter type_||-||12||26||40||54||68||82||96||110||
+||_sound filter velocity_||-||13||27||41||55||69||83||97||111||
+||_sound filter random_||-||14||28||42||56||70||84||98||112||
+||_sound decay type_||-||15||29||43||57||71||85||99||113||
+||_sound panning velocity_||-||16||30||44||58||72||86||100||114||
+||_sound panning random_||-||17||31||45||59||73||87||101||115||
+||_sound volume velocity_||-||18||32||46||60||74||88||102||116||
+||_sound muted_||-||19||33||47||61||75||89||103||117||
+||_sound soloed_||-||20||34||48||62||76||90||104||118||
