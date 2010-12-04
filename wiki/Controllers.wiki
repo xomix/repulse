@@ -1,4 +1,10 @@
 #labels Repulse,MIDI,Controllers
+==Controllers==
+This are the default MIDI controllers, you should use the base channel
+10 and 11 to send the controllers in this table.<BR>
+In addition repulse receives the pitch wheel controller.
+You can set the omni, base channel and base note parameters via the GUI.
+
 ===Channel 10===
 ||_controller_||_engine_||_sound01_||_sound02_||_sound03_||_sound04_||_sound05_||_sound06_||_sound07_||_sound08_||
 ||_engine linked_||2||-||-||-||-||-||-||-||-||
@@ -25,6 +31,7 @@
 ||_engine omni mode on_||125||-||-||-||-||-||-||-||-||
 ||_engine mono operation_||126||-||-||-||-||-||-||-||-||
 ||_engine poly operation_||127||-||-||-||-||-||-||-||-||
+
 
 ===Channel 11===
 ||_controller_||_engine_||_sound01_||_sound02_||_sound03_||_sound04_||_sound05_||_sound06_||_sound07_||_sound08_||
