@@ -1,0 +1,9 @@
+
+Compiling, from this same directory:
+
+ $ cd Debug
+ $ make
+
+Running, from this same directory:
+ $ Debug/repulse patch.xml
+
