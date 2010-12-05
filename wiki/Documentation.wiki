@@ -3,7 +3,9 @@
 
 =Documentation=
 
-==Keyboard Controls==
+==Curses GUI==
+
+===Keyboard Controls===
  * _Arrow key:_ moves the cursor in the spread-sheet like grid.
  * _Control key:_ press control and arrow keys to change the values.
  * _+ key:_ increment the selected preset number.
@@ -27,13 +29,18 @@
  * _F11 key:_ changes the MIDI base note, by default it is 60 (middle c).
  * _F12 key:_ changes the MIDI base channel, by default it is the channel 10.
 
-==Voice Controllers==
+===Engine DSP Controllers==
+ * _Transpose:_ apply a pitch transposition by the given octaves to all voices.
+ * _Stretch:_ time-stretch (does not change pitch) all voices by the given percentage.
+ * _Volume:_ decrease or increase the voice gain.
+
+===Voice DSP Controllers===
  * _Start:_ advance the sample start point by the given miliseconds.
  * _Soft Start:_ apply a quick attack envelope to the sound start.
  * _Transpose:_ apply a pitch transposition by the given octaves.
  * _Transpose Velocity:_ affect the transpose value by the note's velocity (by this percentage).
  * _Transpose Random:_ affect the transpose value by a random source (by this percentage).
- * _Stretch:_ time-stretch (does not change pitch) the sound by the given percentage.
+ * _Stretch:_ time-stretch (does not change pitch) the voice by the given percentage.
  * _Stretch Velocity:_ affect the stretch value by the note's velocity (by this percentage).
  * _Stretch Type:_ choose from a set of time-stretch types to suit your sound's needs.
   * _Auto:_ should suit any sound type automatically.
@@ -90,4 +97,8 @@ This are the controllers for the repulse engine, it listens to this controllers 
 || Mono Operation      || 126 || Disable the stereo mix-down (on/off). ||
 || Poly Operation      || 127 || Enable the stereo mix-down (on/off). ||
 
+<br>
 ===Voice controllers===
+The list of voice MIDI controllers is quite extensive.<br>
+You can check the Controller wiki page to view the complete list of voice controllers.<br>
+The machine always receives voice controllers on channels 10 and 11.<br>
