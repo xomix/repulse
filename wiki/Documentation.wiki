@@ -3,6 +3,40 @@
 
 =Documentation=
 
+==Installing==
+===Dependencies===
+ * Jack [http://jackaudio.org]
+ * SndFile [http://www.mega-nerd.com/libsndfile]
+ * Secret Rabbit (libsamplerate) [http://www.mega-nerd.com/SRC]
+ * SoundTouch [http://www.surina.net/soundtouch/]
+
+===Compiling from SVN===
+
+Use this command to anonymously check out the latest project source code:
+{{{
+svn checkout http://repulse.googlecode.com/svn/trunk/ repulse
+}}}
+
+After downloading you can compile a binary like this:
+{{{
+cd repulse/Debug
+make
+}}}
+
+==Executing==
+
+You can go on and execute repulse like this:
+{{{
+cd..
+Debug/repulse patch.xml
+}}}
+
+In general you can execute:
+{{{
+repulse your_patch.xml [engine_name]
+}}}
+By default the engine name is repulse.
+
 ==Curses GUI==
 
 ===Keyboard Controls===
@@ -100,5 +134,6 @@ This are the controllers for the repulse engine, it listens to this controllers 
 <br>
 ===Voice controllers===
 The list of voice MIDI controllers is quite extensive.<br>
-You can check the Controllers page to view the complete list of voice controllers.<br>
-The machine always receives voice controllers on channels 10 and 11.<br>
+You can check the [Controllers] page to view the complete list of voice controllers.
+* The machine always receives voice controllers on channels 10 and 11. The MIDI base channel can be changed via the GUI.
+* The machine receives note on message for the MIDI notes 60 to 68. The MIDI note base can be changed via the GUI.
