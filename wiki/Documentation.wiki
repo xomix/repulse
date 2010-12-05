@@ -4,14 +4,14 @@
 _The reference for the repulse software._
 <wiki:toc max_depth="3" />
 
-==Installing==
-===Dependencies===
+=Installing=
+==Dependencies==
  * Jack [http://jackaudio.org]
  * SndFile [http://www.mega-nerd.com/libsndfile]
  * Secret Rabbit (libsamplerate) [http://www.mega-nerd.com/SRC]
  * SoundTouch [http://www.surina.net/soundtouch/]
 
-===Compiling from SVN===
+==Compiling from SVN==
 
 Use this command to anonymously check out the latest project source code:
 {{{
@@ -38,9 +38,9 @@ repulse your_patch.xml [engine_name]
 }}}
 By default the engine name is repulse.
 
-==Curses GUI==
+=Curses GUI=
 
-===Keyboard Controls===
+==Keyboard Controls==
  * _Arrow key:_ moves the cursor in the spread-sheet like grid.
  * _Control key:_ press control and arrow keys to change the values.
  * _+ key:_ increment the selected preset number.
@@ -64,12 +64,12 @@ By default the engine name is repulse.
  * _F11 key:_ changes the MIDI base note, by default it is 60 (middle c).
  * _F12 key:_ changes the MIDI base channel, by default it is the channel 10.
 
-===Engine DSP Controllers==
+==Engine DSP Controllers==
  * _Transpose:_ apply a pitch transposition by the given octaves to all voices.
  * _Stretch:_ time-stretch (does not change pitch) all voices by the given percentage.
  * _Volume:_ decrease or increase the voice gain.
 
-===Voice DSP Controllers===
+==Voice DSP Controllers==
  * _Start:_ advance the sample start point by the given miliseconds.
  * _Soft Start:_ apply a quick attack envelope to the sound start.
  * _Transpose:_ apply a pitch transposition by the given octaves.
@@ -109,9 +109,9 @@ By default the engine name is repulse.
  * _Solo:_ solo the selected voice.
  * _Join:_ stops the voice 7 when the voice 8 is started and viceversa.
 .
-==MIDI Control==
+=MIDI Control=
 
-===Engine Controllers===
+==Engine Controllers==
 This are the controllers for the repulse engine, it listens to this controllers on the base channel 10 or omni.
  * You can send a _Program Change_ to select between the first 128 presets in the machine.
  * Sliding the _Pitch Wheel_ MIDI controller it is possible to apply a pitch transposition to all the voices.
@@ -133,9 +133,9 @@ This are the controllers for the repulse engine, it listens to this controllers 
 || Poly Operation      || 127 || Enable the stereo mix-down (on/off). ||
 
 <br>
-===Voice controllers===
+==Voice controllers==
 The list of voice MIDI controllers is quite extensive.<br>
 You can check the [Controllers] page to view the complete list of voice controllers.
 
  * The machine always receives voice controllers on channels 10 and 11. The MIDI base channel can be changed via the GUI.
- * The machine receives note on message for the MIDI notes 60 to 68. The MIDI note base can be changed via the GUI.
+ * The machine receives note on message for the MIDI notes 60 to 68. The MIDI base note can be changed via the GUI.
