@@ -24,3 +24,9 @@ You can go on and execute repulse like this:
 cd ..
 Debug/repulse patch.xml
 }}}
+
+==Dependencies==
+ * Jack [http://jackaudio.org]
+ * SndFile [http://www.mega-nerd.com/libsndfile]
+ * Secret Rabbit (libsamplerate) Code [http://www.mega-nerd.com/SRC]
+ * SoundTouch [http://www.surina.net/soundtouch/]
