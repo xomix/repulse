@@ -3,5 +3,5 @@
  * [Download Download]
  * [Documentation Documentation]
  * [EditingPatches Editing Patches]
- * [TipsAndTricks Tips And Tricks]
+ * [TipsAndTricks Tips and Tricks]
  * [Controllers MIDI Controllers]
