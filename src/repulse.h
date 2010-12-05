@@ -1,19 +1,19 @@
 /**
- * This file is part of rePulse.
+ * This file is part of repulse.
  * (c) 2010 and onwards Juan Carlos Rodrigo Garcia.
  *
- * rePulse is free software: you can redistribute it and/or modify
+ * repulse is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * rePulse is distributed in the hope that it will be useful,
+ * repulse is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with rePulse.  If not, see <http://www.gnu.org/licenses/>.
+ * along with repulse.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #ifndef REPULSE_H_
@@ -32,35 +32,37 @@
 
 namespace repulse {
 
-//MIDI_CONT_VOLUME = 7,                    /**< Controller: 07 Volume       0.    .. 2.   dB   Center                  */
-//MIDI_CONT_STRETCH = 9,                   /**< Controller: 09 Stretch     -1.    .. +1.  %    Center                  */
-//MIDI_CONT_TRANSPOSE = 14,                /**< Controller: 14 Transpose   -48    .. +48  st   Center     Fijar        */
-//MIDI_CONT_LINKED = 15,                   /**< Controller: 15 Linked       0     .. 1    bool                         */
-//MIDI_CONT_SOUND_START = 20,              /**< Controller: 20 Start        0     .. 100  ms                           */
-//MIDI_CONT_SOUND_START_SOFT = 21,         /**< Controller: 21  Soft Start  0     .. 1    bool            Invertir?    */
-//MIDI_CONT_SOUND_TRANSPOSE = 22,          /**< Controller: 22 Transpose   -48    .. +48  st   Center                  */
-//MIDI_CONT_SOUND_TRANSPOSE_VELOCITY = 23, /**< Controller: 23  Velocity    0.    .. 1.   %                            */
-//MIDI_CONT_SOUND_TRANSPOSE_RANDOM = 24,   /**< Controller: 24  Random      0.    .. 1.   %                            */
-//MIDI_CONT_SOUND_STRETCH = 25,            /**< Controller: 25 Stretch     -1.    .. +1.  %    Center                  */
-//MIDI_CONT_SOUND_STRETCH_VELOCITY = 26,   /**< Controller: 26  Velocity    0.    .. 1.   %                            */
-//MIDI_CONT_SOUND_STRETCH_TYPE = 27,       /**< Controller: 27  Type        0     .. 1    enum [A,B...]                */
-//MIDI_CONT_SOUND_OVER_DRIVE = 28,         /**< Controller: 28 Drive        0     .. 10   ???                          */
-//MIDI_CONT_SOUND_OVER_DRIVE_ACTIVE = 29,  /**< Controller: 29  Saturation  0     .. 1    bool            Invertir?    */
-//MIDI_CONT_SOUND_FREQUENCY_FREQUENCY = 48,/**< Controller: 48 Freq         30 Hz .. 18.5 kHz ???                      */
-//MIDI_CONT_SOUND_FREQUENCY_ACTIVE = 49,   /**< Controller: 49  Filter      0     .. 1    bool                         */
-//MIDI_CONT_SOUND_FREQUENCY_TYPE = 50,     /**< Controller: 50  Type        0     .. 4    enum [lp,hp,bp1,bp2,notch]   */
-//MIDI_CONT_SOUND_FREQUENCY_VELOCITY = 51, /**< Controller: 51  Velocity    0.    .. 1.   %                            */
-//MIDI_CONT_SOUND_FREQUENCY_RANDOM = 52,   /**< Controller: 52  Random      0.    .. 1.   %                            */
-//MIDI_CONT_SOUND_FREQUENCY_RESONANCE = 53,/**< Controller: 53 Resonance    0     .. 10   ???                          */
-//MIDI_CONT_SOUND_DECAY = 54,              /**< Controller: 54 Decay        0     .. 10   s                            */
-//MIDI_CONT_SOUND_DECAY_TYPE = 55,         /**< Controller: 55  Type        0     .. 2    enum [infinite,gate,trigger] */
-//MIDI_CONT_SOUND_PANNING = 56,            /**< Controller: 56 Panning      -1.   .. -1.  % Center                     */
-//MIDI_CONT_SOUND_PANNING_VELOCITY = 57,   /**< Controller: 57  Velocity    0.    .. 1.   %                            */
-//MIDI_CONT_SOUND_PANNING_RANDOM = 58,     /**< Controller: 58  Random      0.    .. 1.   %                            */
-//MIDI_CONT_SOUND_VOLUME = 59,             /**< Controller: 59 Volume       0.    .. 2.   dB Center                    */
-//MIDI_CONT_SOUND_VOLUME_VELOCITY = 60,    /**< Controller: 60  Velocity    0.    .. 1.   %                            */
-//MIDI_CONT_SOUND_MUTED = 61,              /**< Controller: 61 Mute         0     .. 1    bool                         */
-//MIDI_CONT_SOUND_SOLOED = 62              /**< Controller: 62 Solo         0     .. 1    bool                         */
+static const std::string BLANK = "";
+
+//MIDI_CONT_VOLUME                    /**< Controller: 07 Volume       0.    .. 2.   dB   Center                  */
+//MIDI_CONT_STRETCH                   /**< Controller: 09 Stretch     -1.    .. +1.  %    Center                  */
+//MIDI_CONT_TRANSPOSE                 /**< Controller: 14 Transpose   -48    .. +48  st   Center     Fijar        */
+//MIDI_CONT_LINKED                    /**< Controller: 15 Linked       0     .. 1    bool                         */
+//MIDI_CONT_SOUND_START               /**< Controller: 20 Start        0     .. 100  ms                           */
+//MIDI_CONT_SOUND_START_SOFT          /**< Controller: 21  Soft Start  0     .. 1    bool            Invertir?    */
+//MIDI_CONT_SOUND_TRANSPOSE           /**< Controller: 22 Transpose   -48    .. +48  st   Center                  */
+//MIDI_CONT_SOUND_TRANSPOSE_VELOCITY  /**< Controller: 23  Velocity    0.    .. 1.   %                            */
+//MIDI_CONT_SOUND_TRANSPOSE_RANDOM    /**< Controller: 24  Random      0.    .. 1.   %                            */
+//MIDI_CONT_SOUND_STRETCH             /**< Controller: 25 Stretch     -1.    .. +1.  %    Center                  */
+//MIDI_CONT_SOUND_STRETCH_VELOCITY    /**< Controller: 26  Velocity    0.    .. 1.   %                            */
+//MIDI_CONT_SOUND_STRETCH_TYPE        /**< Controller: 27  Type        0     .. 1    enum [A,B...]                */
+//MIDI_CONT_SOUND_OVER_DRIVE          /**< Controller: 28 Drive        0     .. 10   ???                          */
+//MIDI_CONT_SOUND_OVER_DRIVE_ACTIVE   /**< Controller: 29  Saturation  0     .. 1    bool            Invertir?    */
+//MIDI_CONT_SOUND_FREQUENCY_FREQUENCY /**< Controller: 48 Freq         30 Hz .. 18.5 kHz ???                      */
+//MIDI_CONT_SOUND_FREQUENCY_ACTIVE    /**< Controller: 49  Filter      0     .. 1    bool                         */
+//MIDI_CONT_SOUND_FREQUENCY_TYPE      /**< Controller: 50  Type        0     .. 4    enum [lp,hp,bp1,bp2,notch]   */
+//MIDI_CONT_SOUND_FREQUENCY_VELOCITY  /**< Controller: 51  Velocity    0.    .. 1.   %                            */
+//MIDI_CONT_SOUND_FREQUENCY_RANDOM    /**< Controller: 52  Random      0.    .. 1.   %                            */
+//MIDI_CONT_SOUND_FREQUENCY_RESONANCE /**< Controller: 53 Resonance    0     .. 10   ???                          */
+//MIDI_CONT_SOUND_DECAY               /**< Controller: 54 Decay        0     .. 10   s                            */
+//MIDI_CONT_SOUND_DECAY_TYPE          /**< Controller: 55  Type        0     .. 2    enum [infinite,gate,trigger] */
+//MIDI_CONT_SOUND_PANNING             /**< Controller: 56 Panning      -1.   .. -1.  % Center                     */
+//MIDI_CONT_SOUND_PANNING_VELOCITY    /**< Controller: 57  Velocity    0.    .. 1.   %                            */
+//MIDI_CONT_SOUND_PANNING_RANDOM      /**< Controller: 58  Random      0.    .. 1.   %                            */
+//MIDI_CONT_SOUND_VOLUME              /**< Controller: 59 Volume       0.    .. 2.   dB Center                    */
+//MIDI_CONT_SOUND_VOLUME_VELOCITY     /**< Controller: 60  Velocity    0.    .. 1.   %                            */
+//MIDI_CONT_SOUND_MUTED               /**< Controller: 61 Mute         0     .. 1    bool                         */
+//MIDI_CONT_SOUND_SOLOED = 62         /**< Controller: 62 Solo         0     .. 1    bool                         */
 
 static const unsigned char MIDI_CONT_BASE_CHANNEL = 9; // 10
 static const unsigned char MIDI_CONT_INIT = 8;
@@ -143,6 +145,7 @@ public:
 	IEngine() {}
 	virtual ~IEngine() {}
 	virtual jack::Client* get_client() const { return 0; }
+    virtual const std::string& get_name() const { return BLANK; }
 	virtual void add_listener( EngineListener* engine_listener ) {}
 	virtual void remove_listener( EngineListener* engine_listener ) {}
 	virtual void add_midi_listener( alsa::MidiInputListener* midi_listener ) {}
@@ -811,6 +814,9 @@ public:
         delete client;
     }
     //////////////////////////////////////////////////////
+    const std::string& get_name() const {
+    	return client->get_name();
+    }
     void set_linked( const bool& linked, const bool& fire = true ) {
     	this->linked = linked;
     }
@@ -903,19 +909,19 @@ public:
     	return document.get_root().get_presets().size() - 1;
     }
     void delete_preset( const size_t& id ) {
-    	if ( ( document.get_root().get_presets().begin() + id ) != document.get_root().get_presets().end() ) {
+    	if ( id < document.get_root().get_presets().size() ) {
     		document.get_root().get_presets().erase( document.get_root().get_presets().begin() + id );
     		save_document();
     	}
     }
     void rename_preset( const size_t& id, const std::string& name ) {
-    	if ( ( document.get_root().get_presets().begin() + id ) != document.get_root().get_presets().end() ) {
+    	if ( id < document.get_root().get_presets().size() ) {
     		document.get_root().get_presets()[ id ].set_name( name );
     		save_document();
     	}
     }
     void save_preset( const size_t& id ) {
-    	if ( ( document.get_root().get_presets().begin() + id ) != document.get_root().get_presets().end() ) {
+    	if ( id < document.get_root().get_presets().size() ) {
 			persistence::Preset& preset = document.get_root().get_presets()[ id ];
 			preset.get_engine().set_volume( get_volume() );
 			preset.get_engine().set_stretch( get_stretch_offset() );
@@ -937,8 +943,8 @@ public:
     	}
     }
     void recall_preset( const size_t& id, const bool& fire = false ) {
-    	if ( ( document.get_root().get_presets().begin() + id ) != document.get_root().get_presets().end() ) {
-			persistence::Preset& preset = document.get_root().get_presets()[ id ];
+    	if ( id < document.get_root().get_presets().size() ) {
+    		persistence::Preset& preset = document.get_root().get_presets()[ id ];
 			set_volume( preset.get_engine().get_volume(), fire );
 			set_stretch_offset( preset.get_engine().get_stretch(), fire );
 			set_transpose_offset( preset.get_engine().get_transpose(), fire );
@@ -954,6 +960,7 @@ public:
 			for ( it = preset.get_sounds().begin(); it != preset.get_sounds().end() && i < util::MAX_SOUNDS; ++it, ++i ) {
 				sounds[ i ]->recall_preset( *it, fire );
 			}
+			set_selected_preset( id, fire );
     	}
     }
 	const int& get_selected_preset() {

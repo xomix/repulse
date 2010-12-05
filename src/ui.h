@@ -1,19 +1,19 @@
 /**
- * This file is part of rePulse.
+ * This file is part of repulse.
  * (c) 2010 and onwards Juan Carlos Rodrigo Garcia.
  *
- * rePulse is free software: you can redistribute it and/or modify
+ * repulse is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * rePulse is distributed in the hope that it will be useful,
+ * repulse is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with rePulse.  If not, see <http://www.gnu.org/licenses/>.
+ * along with repulse.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #ifndef UI_H_
@@ -328,7 +328,7 @@ public:
 	}
 	virtual std::string get_label() const {
 		std::ostringstream o;
-		o << engine->get_selected_preset_name() << "(" << engine->get_selected_preset() << ") +-";
+		o << engine->get_selected_preset_name() << " (" << engine->get_selected_preset() << ") +-";
 		return to_width( o.str(), PRESET_NAME_WIDTH );
 	}
 };
@@ -363,6 +363,15 @@ public:
 		Button( x, y, to_width( "F5 wheel", BUTTON_WIDTH )  ), engine( engine ) {}
 	virtual ColorType get_color() const {
 		return engine->is_alternate_wheel() ? BUTTON_ON : BUTTON_OFF;
+	}
+};
+
+class Exit : public Button {
+	repulse::Engine* engine;
+public:
+	Exit( repulse::Engine* engine, const int& x, const int& y ) :
+		Button( x, y, to_width( "F10 exit", BUTTON_WIDTH )  ), engine( engine ) {
+		set_color( BUTTON_OFF );
 	}
 };
 
@@ -1042,7 +1051,7 @@ public:
 			}
 			{
 				Color color( get_window(), HEADER_TITLE );
-				mvwprintw( get_window(), 0, 1, "RePulse" );
+				mvwprintw( get_window(), 0, 1, engine->get_name().c_str() );
 			}
 		}
 		{
@@ -1202,8 +1211,9 @@ protected:
 		windows.push_back( new AltWheel      ( engine, BUTTON_WIDTH * 2, PRESET_ROW + 1 ) );
 		windows.push_back( new Omni          ( engine, BUTTON_WIDTH * 3, PRESET_ROW + 1 ) );
 		windows.push_back( new Mono          ( engine, BUTTON_WIDTH * 4, PRESET_ROW + 1 ) );
-		windows.push_back( new Note          ( engine, BUTTON_WIDTH * 5, PRESET_ROW + 1 ) );
-		windows.push_back( new Channel       ( engine, BUTTON_WIDTH * 6, PRESET_ROW + 1 ) );
+		windows.push_back( new Exit          ( engine, BUTTON_WIDTH * 7, PRESET_ROW + 1 ) );
+		windows.push_back( new Note          ( engine, BUTTON_WIDTH * 8, PRESET_ROW + 1 ) );
+		windows.push_back( new Channel       ( engine, BUTTON_WIDTH * 9, PRESET_ROW + 1 ) );
 	}
 	void terminate_screens() {
 		WindowVector::const_iterator it;

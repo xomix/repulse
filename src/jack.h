@@ -1,19 +1,19 @@
 /**
- * This file is part of rePulse.
+ * This file is part of repulse.
  * (c) 2010 and onwards Juan Carlos Rodrigo Garcia.
  *
- * rePulse is free software: you can redistribute it and/or modify
+ * repulse is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * rePulse is distributed in the hope that it will be useful,
+ * repulse is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with rePulse.  If not, see <http://www.gnu.org/licenses/>.
+ * along with repulse.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #ifndef JACK_H_
@@ -49,6 +49,7 @@ class Client {
     jack_nframes_t buffer_size;
     size_t data_size;
     ListenerSet jack_listeners;
+    std::string name;
 private:
     static int callback_process( jack_nframes_t frames, void *arg ) {
         ((Client*)arg)->on_process();
@@ -106,7 +107,7 @@ protected:
     }
 public:
     Client( const std::string& name ) :
-    	jack_client( jack_client_open( name.c_str(), JackNoStartServer, 0, 0 ) ) {
+    	jack_client( jack_client_open( name.c_str(), JackNoStartServer, 0, 0 ) ), name( name ) {
         assert( jack_client != 0 );
         jack_set_process_callback( get_jack_client(), callback_process, this );
         jack_set_sample_rate_callback( get_jack_client(), callback_sample_rate, this );
@@ -122,6 +123,9 @@ public:
     }
     void deactivate() {
         jack_deactivate( jack_client );
+    }
+    const std::string& get_name() const {
+    	return name;
     }
     jack_nframes_t time_to_frames( const util::floating_t& seconds ) {
     	return round( get_sample_rate() * seconds );
