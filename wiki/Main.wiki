@@ -50,8 +50,8 @@ Check out the [Download] page to get the latest source version.
 ==Utilised libraries==
 This software depends on a number of great libraries:
 
- * [http://www.alsa-project.org Alsa]
- * [http://jackaudio.org Jack]
+ * [http://www.alsa-project.org Alsa] Audio and MIDI functionality.
+ * [http://jackaudio.org Jack] Real-time, low latency audio and MIDI.
  * [http://www.mega-nerd.com/libsndfile SndFile] An unified sound file access library.
  * [http://www.mega-nerd.com/SRC Secret Rabbit Code] A samplerate conversion library (libsamplerate),
  * [http://www.surina.net/soundtouch SoundTouch] SOLA time stretching library.
