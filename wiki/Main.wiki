@@ -1,4 +1,6 @@
 #labels Wellcome,Repulse,Main,Page
+#sidebar TableOfContents
+
 Welcome to the Repulse project page.
 
 Repulse is a MIDI Jack real time sampler machine that can be used to play drum kits or other sounds. It has 8 voices of polyphony and supports a rich set of parameters per voice.
