@@ -43,4 +43,4 @@ The MIDI support is quite good with repulse responding to the program change, al
 Currently the supported MIDI driver is ALSA, Jack will be added in the future.
 
 ==Downloading==
-Check out the [Download]s page to get the latest source version.
+Check out the [Download] page to get the latest source version.
