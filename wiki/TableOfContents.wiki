@@ -1,4 +1,4 @@
-* [ Main Main page ]
-* [ Download Download ]
-* [ Documentation Documentation ]
-* [ Controllers MIDI Controllers
+* [Main Main page]
+* [Download Download]
+* [Documentation Documentation]
+* [Controllers MIDI Controllers]
