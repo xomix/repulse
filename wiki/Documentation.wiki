@@ -204,7 +204,7 @@ Check the [EditingPatches Editing Patches] page for more information on how to e
 
 =Tips and Tricks=
 
-There is an extensive list of ideas you can test in the [TipsAndTricks Tips And Tricks] page.<br>
+There is an extensive list of ideas you can test in the [TipsAndTricks Tips and Tricks] page.<br>
 Be sure to check this page to get some interesting ideas on how to use the machine.
 
 =Utilised libraries=
