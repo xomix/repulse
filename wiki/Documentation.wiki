@@ -135,5 +135,6 @@ This are the controllers for the repulse engine, it listens to this controllers 
 ===Voice controllers===
 The list of voice MIDI controllers is quite extensive.<br>
 You can check the [Controllers] page to view the complete list of voice controllers.
-* The machine always receives voice controllers on channels 10 and 11. The MIDI base channel can be changed via the GUI.
-* The machine receives note on message for the MIDI notes 60 to 68. The MIDI note base can be changed via the GUI.
+
+ * The machine always receives voice controllers on channels 10 and 11. The MIDI base channel can be changed via the GUI.
+ * The machine receives note on message for the MIDI notes 60 to 68. The MIDI note base can be changed via the GUI.
