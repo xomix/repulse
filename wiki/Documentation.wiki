@@ -2,3 +2,5 @@
 #sidebar TableOfContents
 
 =Documentation=
+
+_quick access [Main Main Page] | [Download] | [MIDI Controllers]_
