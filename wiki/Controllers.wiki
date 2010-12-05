@@ -35,7 +35,7 @@ In addition repulse receives the pitch wheel controller.<br>
 ||_engine mono operation_||126||-||-||-||-||-||-||-||-||
 ||_engine poly operation_||127||-||-||-||-||-||-||-||-||
 
-
+<br>
 ===Channel 11===
 ||_controller_||_engine_||_sound01_||_sound02_||_sound03_||_sound04_||_sound05_||_sound06_||_sound07_||_sound08_||
 ||_sound transpose velocity_||-||8||22||36||50||64||78||92||106||
