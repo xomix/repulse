@@ -3,8 +3,6 @@
 
 =Downloading repulse=
 
-_quick access [Main Main Page] | [Documentation] | [Controllers MIDI Controllers]_
-
 ==Download the latest release==
  The latest release is the 0.0.1 release.
 
