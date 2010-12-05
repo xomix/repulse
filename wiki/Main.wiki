@@ -1,13 +1,14 @@
 #labels Wellcome,Repulse,Main,Page
 #sidebar TableOfContents
 
-Welcome to the Repulse project page.
+=Welcome to the repulse project=
 
+==What is repulse?==
 Repulse is a MIDI Jack real time sampler machine that can be used to play drum kits or other sounds. It has 8 voices of polyphony and supports a rich set of parameters per voice.
 
-Repulse does not contain a sequencer, use any sequencer of your choice to control the sampler, try [http://www.filter24.org/seq24 Seq42] or [http://www.rosegardenmusic.com Rosegarden].
-
 [http://img228.imageshack.us/img228/8738/screenv001.png]
+
+Repulse does not contain a sequencer, use any sequencer of your choice to control the sampler, try [http://www.filter24.org/seq24 Seq42] or [http://www.rosegardenmusic.com Rosegarden].
 
 ==Per voice controllers==
 This are some of the parameters per voice:
@@ -32,4 +33,9 @@ You can apply random modulation to all the parameters at the same time by a minu
 The velocity modulation can applied to uncommon parameters at the same time, like the cutoff frequency, to get interesting sounds.
 
 ==MIDI Support==
-You can drive any parameter that you can see in the GUI with a midi controller. You can check the [Controllers] page to see the detailed controller mappings.
+You can drive any parameter that you can see in the GUI with a midi controller. You can check the [Controllers] page to see the detailed controller mappings.<br>
+The MIDI support is quite good with repulse responding to the program change, all controllers/notes off, omni, poly, volume and plenty of other custom events.<br>
+Currently the supported MIDI driver is ALSA, Jack will be added in the future.
+
+==Downloading==
+Check out the Download page to get the latest source version.
