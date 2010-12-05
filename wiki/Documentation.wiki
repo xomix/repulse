@@ -198,11 +198,14 @@ You can create a preset by saving a text file with this content:
 </Repulse>
 }}}
 
-And introducing a _file_ value that corresponds to the location of your wave file. The machine will look for wave files relative
-to it directory, you can enter absolute paths too.<br>
-Check the [EditingPatches Editing Patches] page for more information on how to edit the path xml file.
+And introducing a *file* value that corresponds to the location of your wave file.<br>
+The machine will look for wave files relative to its directory, you can enter absolute paths too.<br>
+Check the [EditingPatches Editing Patches] page for more information on how to edit the xml file.
 
 ==Tips And Tricks==
+
+There is an extensive list of ideas you can test in the [TipsAndTricks Tips And Tricks] page.<br>
+Be sure to check this page to get some interesting ideas on how to use the machine.
 
 ==Utilised libraries==
 This software depends on a number of great libraries:
