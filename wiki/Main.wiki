@@ -50,8 +50,8 @@ This software depends on a number of great libraries:
 
  * [http://www.alsa-project.org Alsa]
  * [http://jackaudio.org Jack]
- * [http://www.mega-nerd.com/libsndfile SndFile]
- * [http://www.mega-nerd.com/SRC Secret Rabbit Code]
- * [http://www.surina.net/soundtouch SoundTouch]
- * [http://www.grinninglizard.com/tinyxml TinyXML]
+ * [http://www.mega-nerd.com/libsndfile SndFile] An unified sound file access library.
+ * [http://www.mega-nerd.com/SRC Secret Rabbit Code] A samplerate conversion library (libsamplerate),
+ * [http://www.surina.net/soundtouch SoundTouch] SOLA time stretching library.
+ * [http://www.grinninglizard.com/tinyxml TinyXML] A small XML library.
  * [http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/SFMT SFMT] A fast [http://en.wikipedia.org/wiki/Mersenne_twister Merssene Twister] implementation.
