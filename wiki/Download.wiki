@@ -4,7 +4,7 @@
 =Downloading repulse=
 
 ==Download the latest release==
- The latest release is the 0.0.1 release.
+ There is no release.
 
 ==Compiling from SVN==
 
