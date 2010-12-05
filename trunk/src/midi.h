@@ -1,19 +1,19 @@
 /**
- * This file is part of rePulse.
+ * This file is part of repulse.
  * (c) 2010 and onwards Juan Carlos Rodrigo Garcia.
  *
- * rePulse is free software: you can redistribute it and/or modify
+ * repulse is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * rePulse is distributed in the hope that it will be useful,
+ * repulse is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with rePulse.  If not, see <http://www.gnu.org/licenses/>.
+ * along with repulse.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #ifndef MIDI_H_
@@ -164,11 +164,11 @@ class ProgramChange : public VoiceEvent {
 public:
 	ProgramChange() : VoiceEvent() {}
 	~ProgramChange() {}
-	void set_program( unsigned char program ) {
-		get_event()->data.control.param = util::adjust_value( program, MIN_VALUE, MAX_VALUE );
+	void set_program( const int& program ) {
+		get_event()->data.control.value = util::adjust_value( program, MIN_VALUE, MAX_VALUE );
 	}
-	unsigned char get_program() const {
-		return get_event()->data.control.param;
+	int get_program() const {
+		return get_event()->data.control.value;
 	}
 };
 
