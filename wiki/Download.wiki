@@ -1,6 +1,13 @@
 #labels Download,Repulse
 #sidebar TableOfContents
 
+=Downloading repulse=
+
+==Download the latest release==
+ todo
+
+==Compiling from source==
+
 Use this command to anonymously check out the latest project source code:
 {{{
 svn checkout http://repulse.googlecode.com/svn/trunk/ repulse
