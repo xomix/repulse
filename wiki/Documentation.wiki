@@ -3,28 +3,65 @@
 
 =Documentation=
 
-_quick access [Main Main Page] | [Download] | [Controllers MIDI Controllers]_
-
 ==Keyboard Controls==
- * _Arrow key_ press the arrows to move in the spread-sheet like grid.
- * _Control key_ hold control pressed and press the arrows to change the values.
- * _'+' key_ increment the selected preset number.
- * _'-' key_ decrement the selected preset number.
- * _F1 key_ create a new preset.
- * _F2 key_ save the current preset.
- * _F3 key_ recall the currently selected preset.
- * _F4 key_ local on/off toggle:
-   * When local is on the machine will transmit its control surface MIDI events.
-   * When local is off the machine's control surface will remain MIDI quiet.
- * _F5 key_ alternate wheel toggle:
-   * When wheel is off the pitch bend wheel controls the engine's transpose value.
-   * when wheel is on the pitch bend wheel controls the engine's time stretch value.
- * _F6 key_ omni on/off toggle:
-   * When omni is on the machine will receive MIDI events in any channel.
-   * When omni is off the machine will receive MIDI events only the base channel (10).
- * _F7 key_ Mono on/off toggle:
-   * When mono is on the machine operates in mono and does not mix-down the stereo channel.
-   * When mono is off the machine operates in mono and does the mix-down of the stereo channel.
- * _F10 key_ quits the software.
- * _F11 key_ changes the MIDI base note, by default it is 60 (middle c).
- * _F12 key_ changes the MIDI base channel, by default it is the channel 10.
+ * _Arrow key:_ moves the cursor in the spread-sheet like grid.
+ * _Control key:_ press control and arrow keys to change the values.
+ * _'+' key:_ increment the selected preset number.
+ * _'-' key:_ decrement the selected preset number.
+ * _F1 key:_ create a new preset.
+ * _F2 key:_ save the current preset.
+ * _F3 key:_ recall the currently selected preset.
+ * _F4 key:_ local on/off toggle.
+   * When active the machine will interpret its control surface events and MIDI events.
+   * When deactivated the machine will interpret only MIDI events.
+ * _F5 key:_ alternate wheel toggle.
+   * when activated the pitch bend wheel controls the engine's time stretch value.
+   * When deactivated the pitch bend wheel controls the engine's transpose value.
+ * _F6 key:_ omni on/off toggle.
+   * When activated the machine will receive MIDI events in any channel.
+   * When deactivated the machine will receive MIDI events only the base channel (10).
+ * _F7 key:_ Mono on/off toggle.
+   * When activated the machine operates in mono and does not mix-down the stereo channel.
+   * When deactivated the machine operates in mono and does the mix-down of the stereo channel.
+ * _F10 key:_ quits the software.
+ * _F11 key:_ changes the MIDI base note, by default it is 60 (middle c).
+ * _F12 key:_ changes the MIDI base channel, by default it is the channel 10.
+
+==Voice Controllers==
+ * _Start:_ advance the sample start point by the given miliseconds.
+ * _Soft Start:_ apply a quick attack envelope to the sound start.
+ * _Transpose:_ apply a pitch transposition by the given octaves.
+ * _Transpose Velocity:_ affect the transpose value by the note's velocity (by this percentage).
+ * _Transpose Random:_ affect the transpose value by a random source (by this percentage).
+ * _Stretch:_ time-stretch (does not change pitch) the sound by the given percentage.
+ * _Stretch Velocity:_ affect the stretch value by the note's velocity (by this percentage).
+ * _Stretch Type:_ choose from a set of time-stretch types to suit your sound's needs.
+  * _Auto:_ should suit any sound type automatically.
+  * _Speech:_ this type is well suited for speech sounds.
+  * _Type 1:_ alternative mode to choose from.
+  * _Type 2:_ alternative mode to choose from.
+ * _Over Drive:_ overdrives the sound by the given amount, you have to activate the Saturation toggle.
+ * _Saturate:_ activates the saturation of the sound by the given Over Drive amount.
+ * _Filter Frequency:_ middle point frequency for the different filters.
+ * _Filter:_ activate or deactivate the filter.
+ * _Filter Type_: there are five types of filter to choose from.
+  * _Low Pass_ filter.
+  * _High Pass_ filter.
+  * _Band Pass 1_ filter.
+  * _Band Pass 2_ filter (an alternative implementation).
+  * _Notch_ filter.
+ * _Filter Resonance:_ controls the filter resonance value.
+ * _Filter Velocity:_ affect the filter frequency value by the note's velocity (by this percentage).
+ * _Filter Random:_ affect the filter frequency value by a random source (by this percentage).
+ * _Decay:_ sets the envelope decay time in seconds
+ * _Decay Envelope:_ there are three envelope types to choose from.
+  * _Infinite:_ no envelope applied when this type is selected, the voice 'just' plays.
+  * _Trigger:_ the decay envelope starts after a note on event.
+  * _Gate:_ the decay envelope starts after a note off event.
+ * _Panning:_ displaces the voice to the left or right of the stereo mix.
+ * _Panning Velocity:_ affect the panning value by the note's velocity (by this percentage).
+ * _Panning Random:_ affect the panning value by a random source (by this percentage).
+ * _Volume:_ decrease or increase the voice gain.
+ * _Volume Velocity:_ affect the volume value by the note's velocity (by this percentage).
+.
+==MIDI Control==
