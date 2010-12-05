@@ -3,6 +3,8 @@
 
 =MIDI controllers=
 
+_quick access [Main Main Page] | [Download] | [Documentation]_
+
 ==Parameter controllers==
 This are the default MIDI controllers, you should use the base channel
 10 and 11 to send the controllers in this table.<BR>
