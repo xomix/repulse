@@ -4,9 +4,9 @@
 =Downloading repulse=
 
 ==Download the latest release==
- todo
+ The latest release is the 0.0.1 release.
 
-==Compiling from source==
+==Compiling from SVN==
 
 Use this command to anonymously check out the latest project source code:
 {{{
