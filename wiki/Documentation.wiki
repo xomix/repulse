@@ -6,8 +6,8 @@
 ==Keyboard Controls==
  * _Arrow key:_ moves the cursor in the spread-sheet like grid.
  * _Control key:_ press control and arrow keys to change the values.
- * _'+' key:_ increment the selected preset number.
- * _'-' key:_ decrement the selected preset number.
+ * _+ key:_ increment the selected preset number.
+ * _- key:_ decrement the selected preset number.
  * _F1 key:_ create a new preset.
  * _F2 key:_ save the current preset.
  * _F3 key:_ recall the currently selected preset.
@@ -63,5 +63,31 @@
  * _Panning Random:_ affect the panning value by a random source (by this percentage).
  * _Volume:_ decrease or increase the voice gain.
  * _Volume Velocity:_ affect the volume value by the note's velocity (by this percentage).
+ * _Mute:_ mute the selected voice.
+ * _Solo:_ solo the selected voice.
+ * _Join:_ stops the voice 7 when the voice 8 is started and viceversa.
 .
 ==MIDI Control==
+
+===Engine Controllers===
+This are the controllers for the repulse engine, it listens to this controllers on the base channel 10 or omni.
+ * You can send a _Program Change_ to select between the first 128 presets in the machine.
+ * Sliding the _Pitch Wheel_ MIDI controller it is possible to apply a pitch transposition to all the voices.
+
+|| *Name*              || *#* || *Description* ||
+|| Program Change      || -   || Select a program between the 128 first contained in the machine. ||
+|| Pitch Wheel         || -   || Apply a pitch transposition by the given octaves to all the voices. ||
+|| Linked              || 2   || Stops the voice 7 when the voice 8 is started and viceversa (on/off). ||
+|| Rranspose           || 4   || Apply a pitch transposition by the given octaves to all the voices (signed). ||
+|| Stretch             || 5   || Apply time-stretch by the given percentage to all the voices (signed). ||
+|| Volume              || 7   || Decrease or increase the voice gain. ||
+|| All Sound Off       || 120 || Turns all the voices off (on/off). ||
+|| all Controllers Off || 121 || Resets all the machine parameters to a default state (on/off). ||
+|| Local Keyboard      || 122 || When activated the machine will interpret MIDI events and local surface events (on/off). ||
+|| All Notes Off       || 123 || Turns all the voices off and sends a note off event to each voice (on/off). ||
+|| Omni Mode Off       || 124 || Listen MIDI events only on channels 10 and 11 (on/off). ||
+|| Omni Mode On        || 125 || Listen MIDI events on any channel (on/off). ||
+|| Mono Operation      || 126 || Disable the stereo mix-down (on/off). ||
+|| Poly Operation      || 127 || Enable the stereo mix-down (on/off). ||
+
+===Voice controllers===
