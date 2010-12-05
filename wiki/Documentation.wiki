@@ -3,6 +3,8 @@
 
 =Documentation=
 
+<wiki:toc max_depth="3" />
+
 ==Installing==
 ===Dependencies===
  * Jack [http://jackaudio.org]
