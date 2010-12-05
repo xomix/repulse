@@ -27,7 +27,7 @@ This are some of the parameters per voice:
     * Trigger: also known as one shot, starts the decay envelope on note on event.
     * Gate: starts the decay after the note off event.
  * _Panning:_ pan the voice to the left or the right in the stereo output.
- * _Volume:_ adjust the output volume of the voice.
+ * _Volume:_ adjusts the output volume of the voice.
 
 ==Controller Modulation==
 Almost any parameter can be modulated jointly by note velocity and a random source.
@@ -43,4 +43,4 @@ The MIDI support is quite good with repulse responding to the program change, al
 Currently the supported MIDI driver is ALSA, Jack will be added in the future.
 
 ==Downloading==
-Check out the Download page to get the latest source version.
+Check out the [Download]s page to get the latest source version.
