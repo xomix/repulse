@@ -42,5 +42,11 @@ You can drive any parameter that you can see in the GUI with a midi controller. 
 The MIDI support is quite good with repulse responding to the program change, all controllers/notes off, omni, poly, volume and plenty of other custom events.<br>
 Currently the supported MIDI driver is ALSA, Jack will be added in the future.
 
-==Downloading==
+==How to download==
 Check out the [Download] page to get the latest source version.
+
+==Dependencies==
+ * jack [http://jackaudio.org]
+ * libsndfile [http://www.mega-nerd.com/libsndfile]
+ * libsndrate [http://www.mega-nerd.com/SRC]
+ * soundtouch [http://www.surina.net/soundtouch/]
