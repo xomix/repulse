@@ -20,3 +20,14 @@ This are some of the parameters per voice:
     * Gate: starts the decay after the note off event.
  * Panning: pan the voice to the left or the right in the stereo output.
  * Volume: adjust the output volume of the voice.
+
+==Controller Modulation==
+Almost any parameter can be modulated jointly by note velocity and a random source.
+ * Modulating by *note velocity* you can create a velocity reactive sampler, other parameters can be modulated by velocity to achieve subtle effects.
+ * Modulating different parameters by the *random source*, with small values, induces an analogue feeling to the machine.
+
+You can apply random modulation to all the parameters at the same time by a minuscule value to achieve an analogue effect. Or you can turn the random modulations up to get strange effects.<br>
+The velocity modulation can applied to uncommon parameters at the same time, like the cutoff frequency, to get interesting sounds.
+
+==MIDI Support==
+You can drive any parameter that you can see in the GUI with a midi controller. You can check the [Controllers] page to see the detailed controller mappings.
