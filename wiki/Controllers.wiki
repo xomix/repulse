@@ -53,6 +53,6 @@ In addition repulse receives the pitch wheel controller.<br>
 ||_sound soloed_||-||20||34||48||62||76||90||104||118||
 
 ==Additional controllers==
-You can tune the omni and local parameters via the GUI or MIDI, and the base channel and base note parameters via the GUI. This helps matching repulse to tour hardware.<br>
+You can tune the omni and local parameters via the GUI or MIDI, and the base channel and base note parameters via the GUI. This helps matching repulse to your hardware.<br>
 You can make the pitch bend paramenter (the wheel controller) control the repulse
 global pitch or the global length of the samples.
