@@ -7,10 +7,7 @@ _The reference for the repulse software._
 =Introduction=
 
 ==What is repulse?==
-Repulse is a MIDI Jack real time sampler machine that can be used to play drum kits or other sounds. It has 8 voices of polyphony and supports a rich set of parameters per voice.
-
-[http://img228.imageshack.us/img228/8738/screenv001.png]
-
+Repulse is a MIDI Jack real time sampler machine that can be used to play drum kits or other sounds. It has 8 voices of polyphony and supports a rich set of parameters per voice.<br>
 Repulse does not contain a sequencer, use any sequencer of your choice to control the sampler, try [http://www.filter24.org/seq24 Seq42] or [http://www.rosegardenmusic.com Rosegarden].
 
 ==Voice controllers==
@@ -80,6 +77,7 @@ repulse your_patch.xml [engine_name]
 By default the engine name is repulse.
 
 =Curses GUI=
+[http://img228.imageshack.us/img228/8738/screenv001.png]
 
 ==Keyboard Controls==
  * _Arrow key:_ moves the cursor in the spread-sheet like grid.
@@ -180,6 +178,31 @@ You can check the [Controllers] page to view the complete list of voice controll
 
  * The machine always receives voice controllers on channels 10 and 11. The MIDI base channel can be changed via the GUI.
  * The machine receives note on message for the MIDI notes 60 to 68. The MIDI base note can be changed via the GUI.
+
+==Editing Presets==
+The preset editing (creating, renaming, deleting) capabilities are quite small.<br>
+You can create a preset by saving a text file with this content:
+
+{{{
+<Repulse>
+    <Waves>
+        <Wave file="909/BT7A0DA.WAV" />
+        <Wave file="909/RIDED2.WAV" />
+        <Wave file="909/ST7T7S7.WAV" />
+        <Wave file="909/HANDCLP1.WAV" />
+        <Wave file="909/RIM63.WAV" />
+        <Wave file="909/LT0D0.WAV" />
+        <Wave file="909/HHCDA.WAV" />
+        <Wave file="909/HHODA.WAV" />
+    </Waves>
+</Repulse>
+}}}
+
+And introducing a _file_ value that corresponds to the location of your wave file. The machine will look for wave files relative
+to it directory, you can enter absolute paths too.<br>
+Check the [EditingPatches Editing Patches] page for more information on how to edit the path xml file.
+
+==Tips And Tricks==
 
 ==Utilised libraries==
 This software depends on a number of great libraries:
