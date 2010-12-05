@@ -1,0 +1,23 @@
+#summary Repulse tips and tricks
+#labels Repulse,Tips,Tricks,Configuration
+
+=Tips and Tricks=
+
+==Use the overdrive to get an analogue feeling==
+In this case the overdrive of the first voice is incremented and the saturation is activated. The first voice contains a kick drum sound.
+[]
+
+==Create a velocity responsive sampler==
+By incrementing all the volume velocity modulations you can create a fully velocity responsive sampler. This is interesting if you want to edit the velocity in your sequencer, or use an external midi controller with pads.
+[]
+
+==Join the voices 7 and 8==
+Emulates the voice response of a old drum machine. Turning on the voice 7, turns off the voice 8, and viceversa. If you insert hi-hat like samples in the last two voices you can emulate a machine with one voice of polyphony for two samples.
+[]
+
+==Filter the metal section==
+You can insert some filtering in the...
+
+==Tune the samples==
+In this case we have tuned down the ride cymbal and the hi-hats by one octave, and tuned up the bass drum bu one octave. This way new registers of the samples can be achieved.
+[]
