@@ -1,8 +1,9 @@
 #labels Repulse,MIDI,Controllers
 #sidebar TableOfContents
 
-==MIDI Controllers==
+=MIDI controllers=
 
+==Parameter controllers==
 This are the default MIDI controllers, you should use the base channel
 10 and 11 to send the controllers in this table.<BR>
 In addition repulse receives the pitch wheel controller.<br>
