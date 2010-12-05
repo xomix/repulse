@@ -45,8 +45,12 @@ Currently the supported MIDI driver is ALSA, Jack will be added in the future.
 ==How to download==
 Check out the [Download] page to get the latest source version.
 
-==Dependencies==
- * jack [http://jackaudio.org]
- * libsndfile [http://www.mega-nerd.com/libsndfile]
- * libsndrate [http://www.mega-nerd.com/SRC]
- * soundtouch [http://www.surina.net/soundtouch/]
+==Utilised libraries==
+This software depends on a number of great libraries:
+
+ * [http://www.alsa-project.org Alsa]
+ * [http://jackaudio.org Jack]
+ * [http://www.mega-nerd.com/libsndfile SndFile]
+ * [http://www.mega-nerd.com/SRC Secret Rabbit Code]
+ * [http://www.surina.net/soundtouch SoundTouch]
+ * [http://www.grinninglizard.com/tinyxml TinyXML]
