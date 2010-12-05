@@ -1,10 +1,11 @@
 #labels Repulse,MIDI,Controllers
 #sidebar TableOfContents
 
+==MIDI Controllers==
+
 This are the default MIDI controllers, you should use the base channel
 10 and 11 to send the controllers in this table.<BR>
 In addition repulse receives the pitch wheel controller.<br>
-You can tune the omni and local parameters via the GUI or MIDI, and the base channel and base note parameters via the GUI. This helps matching repulse to tour hardware.
 
 ===Channel 10===
 ||_controller_||_engine_||_sound01_||_sound02_||_sound03_||_sound04_||_sound05_||_sound06_||_sound07_||_sound08_||
@@ -49,3 +50,8 @@ You can tune the omni and local parameters via the GUI or MIDI, and the base cha
 ||_sound volume velocity_||-||18||32||46||60||74||88||102||116||
 ||_sound muted_||-||19||33||47||61||75||89||103||117||
 ||_sound soloed_||-||20||34||48||62||76||90||104||118||
+
+==Additional controllers==
+You can tune the omni and local parameters via the GUI or MIDI, and the base channel and base note parameters via the GUI. This helps matching repulse to tour hardware.<br>
+You can make the pitch bend paramenter (the wheel controller) control the repulse
+global pitch or the global length of the samples.
