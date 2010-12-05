@@ -3,4 +3,4 @@
 
 =Documentation=
 
-_quick access [Main Main Page] | [Download] | [MIDI Controllers]_
+_quick access [Main Main Page] | [Download] | [Controller MIDI Controllers]_
