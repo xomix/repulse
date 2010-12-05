@@ -1,4 +1,4 @@
-#labels Wellcome,Repulse,Main,Page
+#labels Welcome,Repulse,Main,Page
 #sidebar TableOfContents
 
 =Welcome to the repulse project=
