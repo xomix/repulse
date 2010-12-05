@@ -3,7 +3,7 @@
 
 =Welcome to the repulse project=
 
-_quick access [Download] | [Documentation] | [Controllers MIDI Controllers]_
+_quick access [Download] | [Documentation] | [Controllers MIDI Controllers] | [EditingPatches Editing Patches] | [TipsAndTricks Tips and Tricks]_
 
 ==What is repulse?==
 Repulse is a MIDI Jack real time sampler machine that can be used to play drum kits or other sounds. It has 8 voices of polyphony and supports a rich set of parameters per voice.
@@ -12,48 +12,5 @@ Repulse is a MIDI Jack real time sampler machine that can be used to play drum k
 
 Repulse does not contain a sequencer, use any sequencer of your choice to control the sampler, try [http://www.filter24.org/seq24 Seq42] or [http://www.rosegardenmusic.com Rosegarden].
 
-==Voice controllers==
-This are some of the parameters per voice:
- * _Start time:_ delays the start time of the sound the given miliseconds.
- * _Transpose:_ transpose the sound the given octaves.
- * _Time Stretch:_ stretch the sound by the given percentage (the pitch does not change), you have different time stretch types to choose from.
- * _Staturation:_ introduce analog like saturation into the sound.
- * _Filtering:_ you have five types to choose from with controllable cutoff and resonance:
-  * Low pass.
-  * High pass.
-  * Band pass 1.
-  * Band pass 2.
-  * Notch
- * _Envelope:_ you have three envelopes to choose from, with a tuneable decay time:
-    * Infinite: does not apply any envelope.
-    * Trigger: also known as one shot, starts the decay envelope on note on event.
-    * Gate: starts the decay after the note off event.
- * _Panning:_ pan the voice to the left or the right in the stereo output.
- * _Volume:_ adjusts the output volume of the voice.
-
-==Controller Modulation==
-Almost any parameter can be modulated jointly by note velocity and a random source.
- * Modulating by *note velocity* you can create a velocity reactive sampler, other parameters can be modulated by velocity to achieve subtle effects.
- * Modulating different parameters by the *random source*, with small values, induces an analogue feeling to the machine.
-
-You can apply random modulation to all the parameters at the same time by a minuscule value to achieve an analogue effect. Or you can turn the random modulations up to get strange effects.<br>
-The velocity modulation can applied to uncommon parameters at the same time, like the cutoff frequency, to get interesting sounds.
-
-==MIDI Support==
-You can drive any parameter that you can see in the GUI with a midi controller. You can check the [Controllers] page to see the detailed controller mappings.<br>
-The MIDI support is quite good with repulse responding to the program change, all controllers/notes off, omni, poly, volume and plenty of other custom events.<br>
-Currently the supported MIDI driver is ALSA, Jack will be added in the future.
-
 ==How to download==
 Check out the [Download] page to get the latest source version.
-
-==Utilised libraries==
-This software depends on a number of great libraries:
-
- * [http://www.alsa-project.org Alsa] Audio and MIDI functionality.
- * [http://jackaudio.org Jack] Real-time, low latency audio and MIDI.
- * [http://www.mega-nerd.com/libsndfile SndFile] An unified sound file access library.
- * [http://www.mega-nerd.com/SRC Secret Rabbit Code] A samplerate conversion library (libsamplerate),
- * [http://www.surina.net/soundtouch SoundTouch] SOLA time stretching library.
- * [http://www.grinninglizard.com/tinyxml TinyXML] A small XML library.
- * [http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/SFMT SFMT] A fast [http://en.wikipedia.org/wiki/Mersenne_twister Merssene Twister] implementation.
