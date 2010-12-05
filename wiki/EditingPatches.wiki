@@ -1,0 +1,53 @@
+#labels Repulse,Editing,Presets,Patches
+#sidebar TableOfContents
+
+=Editing Patches=
+==Creating a Patch File==
+You can create a preset by saving a text file with this content:
+
+{{{
+<Repulse>
+    <Waves>
+        <Wave file="909/BT7A0DA.WAV" />
+        <Wave file="909/RIDED2.WAV" />
+        <Wave file="909/ST7T7S7.WAV" />
+        <Wave file="909/HANDCLP1.WAV" />
+        <Wave file="909/RIM63.WAV" />
+        <Wave file="909/LT0D0.WAV" />
+        <Wave file="909/HHCDA.WAV" />
+        <Wave file="909/HHODA.WAV" />
+    </Waves>
+</Repulse>
+}}}
+
+And introducing a *file* value that corresponds to the location of your wave file.<br>
+The machine will look for wave files relative to its directory, you can enter absolute paths too.<br>
+
+==Deleting Patches==
+
+You can delete a whole preset by removing its complete XML block:
+{{{
+<Presets>
+    <Preset name="Preset 1"><!-- other tags --></Preset>
+    <Preset name="Preset 2"><!-- other tags --></Preset>
+</Presets>
+}}}
+
+Becomes:
+{{{
+<Presets>
+    <Preset name="Preset 1"><!-- other tags --></Preset>
+</Presets>
+}}}
+
+==Renaming Patches==
+
+You can rename a preset by changing its *name* attribute:
+{{{
+    <Preset name="Preset 1"><!-- other tags --></Preset>
+}}}
+
+Becomes:
+{{{
+    <Preset name="My Preset"><!-- other tags --></Preset>
+}}}
