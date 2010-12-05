@@ -4,3 +4,27 @@
 =Documentation=
 
 _quick access [Main Main Page] | [Download] | [Controllers MIDI Controllers]_
+
+==Keyboard Controls==
+ * _Arrow key_ press the arrows to move in the spread-sheet like grid.
+ * _Control key_ hold control pressed and press the arrows to change the values.
+ * _'+' key_ increment the selected preset number.
+ * _'-' key_ decrement the selected preset number.
+ * _F1 key_ create a new preset.
+ * _F2 key_ save the current preset.
+ * _F3 key_ recall the currently selected preset.
+ * _F4 key_ local on/off toggle:
+   * When local is on the machine will transmit its control surface MIDI events.
+   * When local is off the machine's control surface will remain MIDI quiet.
+ * _F5 key_ alternate wheel toggle:
+   * When wheel is off the pitch bend wheel controls the engine's transpose value.
+   * when wheel is on the pitch bend wheel controls the engine's time stretch value.
+ * _F6 key_ omni on/off toggle:
+   * When omni is on the machine will receive MIDI events in any channel.
+   * When omni is off the machine will receive MIDI events only the base channel (10).
+ * _F7 key_ Mono on/off toggle:
+   * When mono is on the machine operates in mono and does not mix-down the stereo channel.
+   * When mono is off the machine operates in mono and does the mix-down of the stereo channel.
+ * _F10 key_ quits the software.
+ * _F11 key_ changes the MIDI base note, by default it is 60 (middle c).
+ * _F12 key_ changes the MIDI base channel, by default it is the channel 10.
