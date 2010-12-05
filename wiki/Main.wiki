@@ -1,0 +1,22 @@
+#labels Wellcome,Repulse,Main,Page
+Welcome to the Repulse project page.
+
+Repulse is a MIDI Jack real time sampler machine that can be used to play drum kits or other sounds. It has 8 voices of polyphony and supports a rich set of parameters per voice.
+
+Repulse does not contain a sequencer, use any sequencer of your choice to control the sampler, try [http://www.filter24.org/seq24 Seq42] or [http://www.rosegardenmusic.com Rosegarden].
+
+[http://img228.imageshack.us/img228/8738/screenv001.png]
+
+==Per voice controllers==
+This are some of the parameters per voice:
+ * Start time: delays the start time of the sound the given miliseconds.
+ * Transpose: transpose the sound the given octaves.
+ * Time Stretch: stretch the sound by the given percentage (the pitch does not change), you have different time stretch types to choose from.
+ * Staturation: introduce analog like saturation into the sound.
+ * Filtering: you have five types to choose from: low pass, high pass, band pass 1, band pass 2 and notch with controllable cutoff and resonance.
+ * Envelope: you have three envelopes to choose from, with a tuneable decay time:
+    * Infinite: does not apply any envelope.
+    * Trigger: also known as one shot, starts the decay envelope on note on event.
+    * Gate: starts the decay after the note off event.
+ * Panning: pan the voice to the left or the right in the stereo output.
+ * Volume: adjust the output volume of the voice.
