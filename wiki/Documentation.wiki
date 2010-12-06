@@ -1,3 +1,4 @@
+#summary Repulse reference and documentation
 #labels Repulse,Documentation,README
 #sidebar TableOfContents
 
@@ -206,6 +207,13 @@ Check the [EditingPatches Editing Patches] page for more information on how to e
 
 There is an extensive list of ideas you can test in the [TipsAndTricks Tips And Tricks] page.<br>
 Be sure to check this page to get some interesting ideas on how to use the machine.
+
+=Team=
+
+This is the great team the makes repulse possible:
+
+ * Jaume Aguilera: adviser and tester.
+ * Juan Carlos Rodrigo: lead coder and tester.
 
 =Utilised libraries=
 This software depends on a number of great libraries:
