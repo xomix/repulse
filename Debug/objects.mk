@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -ljack -lSoundTouch -lcurses -lasound -lsndfile -lsamplerate
+LIBS := -ljack -lcurses -lasound -lsndfile -lsamplerate -lSoundTouch
 
