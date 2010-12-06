@@ -25,5 +25,5 @@ You can insert some filtering in the...<br>
 []
 
 ==Tune the samples==
-In this case we have tuned down the ride cymbal and the hi-hats by one octave, and tuned up the bass drum bu one octave. This way new registers of the samples can be achieved.<br>
+In this case we have tuned down the ride cymbal and the hi-hats by one octave, and tuned up the bass drum by one octave. This way new registers of the samples can be explored.<br>
 [http://img576.imageshack.us/img576/3319/tuningw.png]
