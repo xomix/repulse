@@ -1,3 +1,4 @@
+#summary A guide to manually edit patches
 #labels Repulse,Editing,Presets,Patches
 #sidebar TableOfContents
 
