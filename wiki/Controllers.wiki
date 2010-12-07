@@ -1,3 +1,4 @@
+#summary Repulse MIDI controllers reference
 #labels Repulse,MIDI,Controllers
 #sidebar TableOfContents
 
