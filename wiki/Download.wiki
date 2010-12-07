@@ -15,14 +15,12 @@ svn checkout http://repulse.googlecode.com/svn/trunk/ repulse
 
 After downloading you can compile a binary like this:
 {{{
-cd repulse/Debug
-make
+./build.sh
 }}}
 
 You can go on and execute repulse like this:
 {{{
-cd ..
-Debug/repulse patch.xml
+repulse patch.xml
 }}}
 
 ==Dependencies==
