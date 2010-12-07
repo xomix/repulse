@@ -1,3 +1,4 @@
+#summary Main page of the repulse project
 #labels Welcome,Repulse,Main,Page
 #sidebar TableOfContents
 
