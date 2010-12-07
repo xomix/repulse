@@ -22,7 +22,8 @@
 #include <cassert>
 #include <samplerate.h>
 #include <sndfile.hh>
-#include "../soundtouch/TDStretch.h"
+#include <FIFOSampleBuffer.h>
+#include <TDStretch.h>
 #include "jack.h"
 #include "util.h"
 

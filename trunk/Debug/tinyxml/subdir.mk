@@ -26,7 +26,7 @@ CPP_DEPS += \
 tinyxml/%.o: ../tinyxml/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -O3 -g3 -pedantic -pedantic-errors -Wall -Werror -c -fmessage-length=0 -msse2 -fno-strict-aliasing -march=i486 -mtune=i686 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
+	g++ -I"/home/jrodrigo/workspace/repulse/soundtouch/source/SoundTouch" -I"/home/jrodrigo/workspace/repulse/soundtouch/include" -O3 -g3 -pedantic -pedantic-errors -Wall -Werror -c -fmessage-length=0 -pedantic -msse2 -fno-strict-aliasing -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
