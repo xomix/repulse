@@ -2,7 +2,7 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-USER_OBJS :=
+USER_OBJS := /home/jrodrigo/workspace/repulse/soundtouch/source/SoundTouch/.libs/libSoundTouch.a
 
-LIBS := -ljack -lcurses -lasound -lsndfile -lsamplerate -lSoundTouch
+LIBS := -lasound -lsamplerate -lcurses -lsndfile -ljack
 
