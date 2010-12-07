@@ -60,6 +60,7 @@ svn checkout http://repulse.googlecode.com/svn/trunk/ repulse
 
 After downloading you can compile a binary like this:
 {{{
+cd repulse
 ./build.sh
 }}}
 
@@ -67,7 +68,7 @@ After downloading you can compile a binary like this:
 
 You can go on and execute repulse like this:
 {{{
-repulse patch.xml
+./repulse patch.xml
 }}}
 
 In general you can execute:
