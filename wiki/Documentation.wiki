@@ -1,4 +1,4 @@
-#summary Repulse reference and documentation
+#summary Repulse reference manual and documentation
 #labels Repulse,Documentation,README
 #sidebar TableOfContents
 
@@ -52,6 +52,7 @@ Currently the supported MIDI driver is ALSA, Jack will be added in the future.
 
 ==Compiling from SVN==
 
+
 Use this command to anonymously check out the latest project source code:
 {{{
 svn checkout http://repulse.googlecode.com/svn/trunk/ repulse
@@ -59,23 +60,22 @@ svn checkout http://repulse.googlecode.com/svn/trunk/ repulse
 
 After downloading you can compile a binary like this:
 {{{
-cd repulse/Debug
-make
+./build.sh
 }}}
 
 ==Executing==
 
 You can go on and execute repulse like this:
 {{{
-cd..
-Debug/repulse patch.xml
+repulse patch.xml
 }}}
 
 In general you can execute:
 {{{
 repulse your_patch.xml [engine_name]
 }}}
-By default the engine name is repulse.
+
+By default the engine name is repulse. And repulse searches for wave files relative to the binary location folder.
 
 =Curses GUI=
 [http://img228.imageshack.us/img228/8738/screenv001.png]
