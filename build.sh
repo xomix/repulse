@@ -1,8 +1,5 @@
 #!/bin/bash
 cd soundtouch
-autoconf
-aclocal
-automake
 ./configure
 make
 cd ..
