@@ -1168,6 +1168,7 @@ protected:
 		keypad( stdscr, TRUE );
 		halfdelay( 10 );
 		curs_set( 0 );
+		resize_term( 30, 101 );
 	}
 	void initialize_colors() {
 		assert( has_colors() == TRUE );
