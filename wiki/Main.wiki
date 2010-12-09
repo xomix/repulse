@@ -21,7 +21,7 @@ Repulse is a MIDI Jack real time sampler machine that can be used to play drum k
 
 Repulse does not contain a sequencer, use any sequencer of your choice to control the sampler, try [http://www.filter24.org/seq24 Seq42] or [http://www.rosegardenmusic.com Rosegarden].
 
-This is what repulse looks like. Currently there is a curses GUI to drive the software (aside from MIDI control).<br>Keep in mind that repulse is under heavy development and can bite your dog.<br><br>
+This is what repulse looks like, currently there is a curses GUI to drive the software (aside from MIDI control).<br><br>
 [http://img228.imageshack.us/img228/8738/screenv001.png]
 
 ==How to download==
