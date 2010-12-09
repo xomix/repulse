@@ -31,4 +31,4 @@ In this case we have tuned down the ride cymbal and the hi-hats by one octave, a
 ==Randomize some parameters==
 You can achieve a real analogue feeling by slightly coupling the note velocity and random source to multiple parameters, this way the machine never really does the same thing two times... As you can see we have altered the random value on the.
 In addition you have all the changed parameters highlighted.
-[]
+[http://img72.imageshack.us/img72/4485/randompd.png]
