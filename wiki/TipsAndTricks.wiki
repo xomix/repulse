@@ -17,7 +17,7 @@ We have applied a gate decay _envelope type_ (turns the envelope on after the no
 [http://img219.imageshack.us/img219/5118/envelopez.png]
 
 ==Join the voices 7 and 8==
-Emulates the voice response of a old drum machine. Turning on the voice 7, turns off the voice 8, and viceversa. If you insert hi-hat like samples in the last two voices you can emulate a machine with one voice of polyphony for two samples. Having two samples _linked_ to one voice<br>
+Emulates the voice response of an old drum machine. Turning on the voice 7, turns off the voice 8, and viceversa. If you insert hi-hat like samples in the last two voices you can emulate a machine with one voice of polyphony for two samples. Having two samples _linked_ to one voice<br>
 [http://img262.imageshack.us/img262/62/linked.png]
 
 ==Filter the metal section==
