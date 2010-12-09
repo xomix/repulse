@@ -26,5 +26,5 @@ This is what repulse looks like. Currently there is a curses GUI to drive the so
 
 ==How to download==
  
- You can compile repulse from source.<br>
+ You can compile repulse from source code.<br>
  Check out the [Download] page to get the latest version.
