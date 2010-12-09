@@ -184,12 +184,12 @@ You can check the [Controllers] page to view the complete list of voice controll
 ==Modulation grid==
 This is a table that shows the modulation capabilities, and wich parameter is modulated:
 
-| *Parameter* | *note<br>velocity* | *random<br>source* |
-| Transpose   | x                  | x                  |
-| Stretch     | x                  |                    |
-| Filter Frequency | x             | x                  |
-| Panning     | x                  | x                  |
-| Volume      | x                  |                    |
+|| *Parameter* || *note<br>velocity* || *random<br>source* ||
+|| Transpose   || x                  || x                  ||
+|| Stretch     || x                  ||                    ||
+|| Filter Frequency || x             || x                  ||
+|| Panning     || x                  || x                  ||
+|| Volume      || x                  ||                    ||
 
 =Editing patches=
 The patch editing (creating, renaming, deleting) capabilities are quite small.<br>
