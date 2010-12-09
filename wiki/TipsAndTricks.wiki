@@ -5,7 +5,7 @@
 =Tips and Tricks=
 
 ==Use the overdrive to get an analogue feeling==
-In this case the _overdrive_ of the first voice is incremented and the _saturation_ is activated. The first voice contains a kick drum sound.<br>
+In this case the _overdrive_ of the first voice is incremented and the _saturation_ is activated. The first voice contains a bass drum sound.<br>
 [http://img98.imageshack.us/img98/4528/overdrive.png]
 
 ==Create a velocity responsive sampler==
@@ -13,22 +13,21 @@ By incrementing all the _volume velocity_ modulations you can create a fully vel
 [http://img834.imageshack.us/img834/1143/velocity.png]
 
 ==Try different envelopes==
-We have applied a _gate envelope_ (turns the envelope on after the note off event) to the ride cymbal (voice 2), with a short _decay_.<br>
+We have applied a gate decay _envelope type_ (turns the envelope on after the note off event) to the ride cymbal (voice 2), with a short _decay_.<br>
 [http://img219.imageshack.us/img219/5118/envelopez.png]
 
 ==Join the voices 7 and 8==
-Emulates the voice response of a old drum machine. Turning on the voice 7, turns off the voice 8, and viceversa. If you insert hi-hat like samples in the last two voices you can emulate a machine with one voice of polyphony for two samples. Having two samples _joined_ to one voice<br>
+Emulates the voice response of a old drum machine. Turning on the voice 7, turns off the voice 8, and viceversa. If you insert hi-hat like samples in the last two voices you can emulate a machine with one voice of polyphony for two samples. Having two samples _linked_ to one voice<br>
 [http://img262.imageshack.us/img262/62/linked.png]
 
 ==Filter the metal section==
-You can insert some filtering in the metal section by activating the _filter_ option and selecting a _low pass_ filter and adjusting the _frequency_ a bit.<br>
+You can make the metal section lighter or heavier by activating the _filter_ option and selecting a _low pass_, or any other, filter and adjusting the _frequency_ a bit.<br>
 [http://img408.imageshack.us/img408/5984/filterh.png]
 
 ==Tune the samples==
-In this case we have tuned down the ride cymbal and the hi-hats by one octave, and tuned up the bass drum by one octave. This way new registers of the samples can be explored.<br>
+In this case we have _transposed_ down the ride cymbal and the hi-hats by one octave, and _transposed_ up the bass drum by one octave. This way new registers of the samples can be explored.<br>
 [http://img801.imageshack.us/img801/8207/transpose.png]
 
 ==Randomize some parameters==
-You can achieve a real analogue feeling by slightly coupling the note velocity and random source to multiple parameters, this way the machine never really does the same thing two times... As you can see we have altered the random value on the.
-In addition you have all the changed parameters highlighted.<br>
+You can achieve a real analogue feeling by slightly coupling the note velocity and random source to multiple parameters, this way the machine never really does the same thing two times... As you can see we have slightly altered the random value on the voices 2, 7 and 8. In addition you have all the other parameters changed highlighted.<br>
 [http://img72.imageshack.us/img72/4485/randompd.png]
