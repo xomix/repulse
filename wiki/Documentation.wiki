@@ -190,6 +190,7 @@ This table shows the modulation capabilities, and which parameter is modulated b
 || Filter Frequency || x             || x                  ||
 || Panning     || x                  || x                  ||
 || Volume      || x                  ||                    ||
+<br>
 
 =Editing patches=
 The patch editing (creating, renaming, deleting) capabilities are quite small.<br>
