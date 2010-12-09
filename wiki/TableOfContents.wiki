@@ -3,6 +3,7 @@
 
  * [Main Main page]
  * [Download Download]
+ * [Tutorial Tutorial]
  * [Documentation Documentation]
  * [EditingPatches Editing patches]
  * [TipsAndTricks Tips and tricks]
