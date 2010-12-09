@@ -182,7 +182,7 @@ You can check the [Controllers] page to view the complete list of voice controll
  * The machine receives note on message for the MIDI notes 60 to 68. The MIDI base note can be changed via the GUI.
 
 ==Modulation grid==
-This is a table that shows the modulation capabilities, and which parameter is modulated be each of the two sources:
+This table shows the modulation capabilities, and which parameter is modulated by each of the two possible sources:
 
 || *Parameter* || *Note<br>Velocity* || *Random<br>Source* ||
 || Transpose   || x                  || x                  ||
