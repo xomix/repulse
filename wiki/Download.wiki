@@ -28,5 +28,4 @@ You can go on and execute repulse like this:
 ==Dependencies==
  * Jack [http://jackaudio.org]
  * SndFile [http://www.mega-nerd.com/libsndfile]
- * Secret Rabbit (libsamplerate) [http://www.mega-nerd.com/SRC]
- * SoundTouch [http://www.surina.net/soundtouch/]
+ * Secret Rabbit Code (libsamplerate) [http://www.mega-nerd.com/SRC]
