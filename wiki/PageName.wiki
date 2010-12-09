@@ -1,5 +1,0 @@
-#summary A quick tutorial to get repulse going
-#labels Repulse,Quick,Tutorial,Introduction
-#sidebar TableOfContents
-
-=Tutorial=
