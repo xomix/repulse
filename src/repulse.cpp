@@ -30,7 +30,7 @@ int main( int argc, char* argv[] ) {
     	engine->load_repulse();
 		ui::UI ui( engine );
 		while ( !ui.is_leave() ) {
-			ui.draw();
+			ui.update();
 		}
 		engine->save_repulse();
 		delete engine;

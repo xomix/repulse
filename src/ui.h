@@ -24,6 +24,7 @@
 #include <sstream>
 #include <iomanip>
 #include <ncurses.h>
+#include <signal.h>
 #include "repulse.h"
 #include "persistence.h"
 
@@ -31,17 +32,77 @@ namespace ui {
 
 class Window {
 	WINDOW* window;
+	int width;
+	int height;
+	int x;
+	int y;
+protected:
+	virtual void create() {
+		window = subwin( stdscr, get_height(), get_width(), get_y(), get_x() );
+		assert( window != 0 );
+	}
+	virtual void destroy() {
+		if ( window ) {
+			delwin( window );
+			window = 0;
+		}
+	}
+	WINDOW* get_window() const { return window; }
 public:
 	Window() : window( 0 ) {}
 	Window( const int& width, const int& height, const int& x = 0, const int& y = 0 ) :
-		window( subwin( stdscr, height, width, y, x ) ) {
-		assert( window != 0 );
+		width( width ), height( height ), x( x ), y( y ) {
+		create();
 	}
-	virtual ~Window() { delwin( window ); }
-	WINDOW* get_window() const { return window; }
+	virtual ~Window() { destroy(); }
+	virtual void set_x( const int& x ) {
+		if ( this->x != x ) {
+			this->x = x;
+			resize();
+		}
+	}
+	virtual const int get_x() {
+		return x;
+	}
+	virtual void set_y( const int& y ) {
+		if ( this->y != y ) {
+			this->y = y;
+			resize();
+		}
+	}
+	virtual const int get_y() {
+		return y;
+	}
+	virtual void set_width( const int& width ) {
+		if ( this->width != width ) {
+			this->width = width;
+			resize();
+		}
+	}
+	virtual const int get_width() {
+		return width;
+	}
+	virtual void set_height( const int& height ) {
+		if ( this->height != height ) {
+			this->height = height;
+			resize();
+		}
+	}
+	virtual const int get_height() {
+		return height;
+	}
+	virtual void resize() {
+		wresize( window, get_height(), get_width() );
+	}
+	virtual void on_resize() {
+		resize();
+	}
 	virtual void draw() {
-		//touchwin( window );
+		touchwin( window );
 		wnoutrefresh( window );
+	}
+	virtual void on_draw() {
+		draw();
 	}
 };
 
@@ -316,7 +377,7 @@ public:
 class PresetCreate : public Button {
 public:
 	PresetCreate( const int& x, const int& y ) :
-		Button( x, y, to_width( "F1 create", BUTTON_WIDTH ) ) {}
+		Button( x, y, to_width( "^N new", BUTTON_WIDTH ) ) {}
 };
 
 class PresetName : public Button {
@@ -337,20 +398,20 @@ class PresetSave : public Button {
 	repulse::Engine* context;
 public:
 	PresetSave( const int& x, const int& y ) :
-		Button( x, y, to_width( "F2 save", BUTTON_WIDTH ) ) {}
+		Button( x, y, to_width( "^B save", BUTTON_WIDTH ) ) {}
 };
 
 class PresetRecall : public Button {
 public:
 	PresetRecall( const int& x, const int& y ) :
-		Button( x, y, to_width( "F3 recall", BUTTON_WIDTH )  ) {}
+		Button( x, y, to_width( "^R recall", BUTTON_WIDTH )  ) {}
 };
 
 class LocalKeyboard : public Button {
 	repulse::Engine* engine;
 public:
 	LocalKeyboard( repulse::Engine* engine, const int& x, const int& y ) :
-		Button( x, y, to_width( "F4 local", BUTTON_WIDTH )  ), engine( engine ) {}
+		Button( x, y, to_width( "^L local", BUTTON_WIDTH )  ), engine( engine ) {}
 	virtual ColorType get_color() const {
 		return engine->is_local_keyboard() ? BUTTON_ON : BUTTON_OFF;
 	}
@@ -360,7 +421,7 @@ class AltWheel : public Button {
 	repulse::Engine* engine;
 public:
 	AltWheel( repulse::Engine* engine, const int& x, const int& y ) :
-		Button( x, y, to_width( "F5 wheel", BUTTON_WIDTH )  ), engine( engine ) {}
+		Button( x, y, to_width( "^W wheel", BUTTON_WIDTH )  ), engine( engine ) {}
 	virtual ColorType get_color() const {
 		return engine->is_alternate_wheel() ? BUTTON_ON : BUTTON_OFF;
 	}
@@ -370,7 +431,7 @@ class Exit : public Button {
 	repulse::Engine* engine;
 public:
 	Exit( repulse::Engine* engine, const int& x, const int& y ) :
-		Button( x, y, to_width( "F10 exit", BUTTON_WIDTH )  ), engine( engine ) {
+		Button( x, y, to_width( "^E exit", BUTTON_WIDTH )  ), engine( engine ) {
 		set_color( BUTTON_OFF );
 	}
 };
@@ -379,7 +440,7 @@ class Omni : public Button {
 	repulse::Engine* engine;
 public:
 	Omni( repulse::Engine* engine, const int& x, const int& y ) :
-		Button( x, y, to_width( "F6 omni", BUTTON_WIDTH )  ), engine( engine ) {}
+		Button( x, y, to_width( "^O omni", BUTTON_WIDTH )  ), engine( engine ) {}
 	virtual ColorType get_color() const {
 		return engine->is_omni() ? BUTTON_ON : BUTTON_OFF;
 	}
@@ -389,7 +450,7 @@ class Mono : public Button {
 	repulse::Engine* engine;
 public:
 	Mono( repulse::Engine* engine, const int& x, const int& y ) :
-		Button( x, y, to_width( "F7 mono", BUTTON_WIDTH )  ), engine( engine ) {}
+		Button( x, y, to_width( "^V mono", BUTTON_WIDTH )  ), engine( engine ) {}
 	virtual ColorType get_color() const {
 		return engine->is_mono() ? BUTTON_ON : BUTTON_OFF;
 	}
@@ -399,13 +460,34 @@ class Channel : public Button {
 	repulse::Engine* engine;
 public:
 	Channel( repulse::Engine* engine, const int& x, const int& y ) :
-		Button( x, y, to_width( "F12 ch:10", BUTTON_WIDTH ) ), engine( engine ) {
+		Button( x, y, to_width( "^J ch:", BUTTON_WIDTH ) ), engine( engine ) {
 		set_color( BUTTON_ROTATORY );
 	}
 	virtual std::string get_label() const {
 		std::ostringstream o;
-		o << "F12 ch:" << (int)( engine->get_base_channel() + 1 );
+		o << "^J ch:" << (int)( engine->get_base_channel() + 1 );
 		return to_width( o.str(), BUTTON_WIDTH );;
+	}
+};
+
+class NoteMap : public Button {
+	repulse::Engine* engine;
+public:
+	NoteMap( repulse::Engine* engine, const int& x, const int& y ) :
+		Button( x, y, to_width( "^M", BUTTON_WIDTH ) ), engine( engine ) {
+		set_color( BUTTON_ROTATORY );
+	}
+	virtual std::string get_label() const {
+		std::ostringstream o;
+		switch ( engine->get_note_map() ) {
+		case util::NOTE_MAP_KEYBOARD:
+			o << "^F keyb";
+			break;
+		case util::NOTE_MAP_PADS:
+			o << "^F pads";
+			break;
+		}
+		return o.str();
 	}
 };
 
@@ -413,12 +495,12 @@ class Note : public Button {
 	repulse::Engine* engine;
 public:
 	Note( repulse::Engine* engine, const int& x, const int& y ) :
-		Button( x, y, to_width( "F11 nt:10", BUTTON_WIDTH ) ), engine( engine ) {
+		Button( x, y, to_width( "^T nt:", BUTTON_WIDTH ) ), engine( engine ) {
 		set_color( BUTTON_ROTATORY );
 	}
 	virtual std::string get_label() const {
 		std::ostringstream o;
-		o << "F11 nt:" << (int)engine->get_base_note();
+		o << "^T nt:" << (int)engine->get_base_note();
 		return to_width( o.str(), BUTTON_WIDTH );;
 	}
 };
@@ -1134,25 +1216,19 @@ public:
 	}
 };
 
-enum MultipleKeys {
-	CONTROL_LEFT = 68,
-	CONTROL_RIGHT = 67,
-	CONTROL_UP = 65,
-	CONTROL_DOWN = 66
-};
+static const int CONTROL_N = 14; // new
+static const int CONTROL_B =  2; // save
+static const int CONTROL_R = 18; // recall
+static const int CONTROL_W = 23; // wheel
+static const int CONTROL_O = 15; // omni
+static const int CONTROL_V = 22; // mono
+static const int CONTROL_L = 12; // local
+static const int CONTROL_F =  6; // note map
+static const int CONTROL_E =  5; // quit
+static const int CONTROL_J = 10; // base channel
+static const int CONTROL_T = 20; // base note
 
-static const int KEY_F1 = KEY_F(1);
-static const int KEY_F2 = KEY_F(2);
-static const int KEY_F3 = KEY_F(3);
-static const int KEY_F4 = KEY_F(4);
-static const int KEY_F5 = KEY_F(5);
-static const int KEY_F6 = KEY_F(6);
-static const int KEY_F7 = KEY_F(7);
-static const int KEY_F8 = KEY_F(8);
-static const int KEY_F9 = KEY_F(9);
-static const int KEY_F10 = KEY_F(10);
-static const int KEY_F11 = KEY_F(11);
-static const int KEY_F12 = KEY_F(12);
+static bool ui_resize = false;
 
 class UI {
 	PresetName* preset_name;
@@ -1160,13 +1236,22 @@ class UI {
 	repulse::Engine* engine;
 	bool leave;
 	int selected_column;
+	static void do_resize( int dummy ) {
+		ui_resize = true;
+	}
+	static void do_nothing( int dummy ) {
+		// NOP
+	}
 protected:
 	void initialize_curses() {
+		signal( SIGWINCH, do_resize );
+		signal( SIGINT, do_nothing );
+		signal( SIGTSTP, do_nothing );
 		initscr();
 		clear();
 		noecho();
 		keypad( stdscr, TRUE );
-		halfdelay( 10 );
+		halfdelay( 1 );
 		curs_set( 0 );
 		resize_term( 30, 101 );
 	}
@@ -1200,21 +1285,22 @@ protected:
 		}
 		dynamic_cast<SelectableRow*>( windows[0] )->set_selected_row( 0 );
 		windows.push_back( new Engine        ( engine, x, HEADER_HEIGHT ) );
-		windows.push_back( new PresetCreate  ( BUTTON_WIDTH, PRESET_ROW ) );
-		windows.push_back( new PresetName    ( engine, BUTTON_WIDTH * 2, PRESET_ROW ) );
-		windows.push_back( new PresetRecall  ( ( BUTTON_WIDTH * 3 ) + PRESET_NAME_WIDTH, PRESET_ROW ) );
+		windows.push_back( new PresetName    ( engine, BUTTON_WIDTH * 1, PRESET_ROW ) );
+		windows.push_back( new PresetCreate  ( ( BUTTON_WIDTH * 1 ) + PRESET_NAME_WIDTH, PRESET_ROW ) );
 		windows.push_back( new PresetSave    ( ( BUTTON_WIDTH * 2 ) + PRESET_NAME_WIDTH, PRESET_ROW ) );
+		windows.push_back( new PresetRecall  ( ( BUTTON_WIDTH * 3 ) + PRESET_NAME_WIDTH, PRESET_ROW ) );
 		windows.push_back( new Helper        ( 0, HEADER_HEIGHT ) );
 		windows.push_back( new Header        ( engine, 0, 0 ) );
 		windows.push_back( new Helper        ( 0, HEADER_HEIGHT ) );
 		windows.push_back( new Header        ( engine, 0, 0 ) );
-		windows.push_back( new LocalKeyboard ( engine, BUTTON_WIDTH * 1, PRESET_ROW + 1 ) );
-		windows.push_back( new AltWheel      ( engine, BUTTON_WIDTH * 2, PRESET_ROW + 1 ) );
-		windows.push_back( new Omni          ( engine, BUTTON_WIDTH * 3, PRESET_ROW + 1 ) );
-		windows.push_back( new Mono          ( engine, BUTTON_WIDTH * 4, PRESET_ROW + 1 ) );
-		windows.push_back( new Exit          ( engine, BUTTON_WIDTH * 7, PRESET_ROW + 1 ) );
-		windows.push_back( new Note          ( engine, BUTTON_WIDTH * 8, PRESET_ROW + 1 ) );
-		windows.push_back( new Channel       ( engine, BUTTON_WIDTH * 9, PRESET_ROW + 1 ) );
+		windows.push_back( new AltWheel      ( engine, BUTTON_WIDTH * 1, PRESET_ROW + 1 ) );
+		windows.push_back( new Omni          ( engine, BUTTON_WIDTH * 2, PRESET_ROW + 1 ) );
+		windows.push_back( new Mono          ( engine, BUTTON_WIDTH * 3, PRESET_ROW + 1 ) );
+		windows.push_back( new LocalKeyboard ( engine, BUTTON_WIDTH * 4, PRESET_ROW + 1 ) );
+		windows.push_back( new NoteMap       ( engine, BUTTON_WIDTH * 5, PRESET_ROW + 1 ) );
+		windows.push_back( new Note          ( engine, BUTTON_WIDTH * 6, PRESET_ROW + 1 ) );
+		windows.push_back( new Channel       ( engine, BUTTON_WIDTH * 7, PRESET_ROW + 1 ) );
+		windows.push_back( new Exit          ( engine, BUTTON_WIDTH * 9, PRESET_ROW + 1 ) );
 	}
 	void terminate_screens() {
 		WindowVector::const_iterator it;
@@ -1237,26 +1323,37 @@ public:
 		terminate_curses();
 	}
 	bool is_leave() const { return leave; }
-	void draw() {
+	void update() {
+		Window* w;
 		SelectableRow* column;
 		int ch;
 		WindowVector::const_iterator it;
+		if ( ui_resize ) {
+			endwin();
+			initscr();
+			ui_resize = false;
+		}
 		for ( it = windows.begin(); it != windows.end(); ++it ) {
-			(*it)->draw();
+			w = *it;
+			w->on_draw();
 		}
 		doupdate();
 		if ( ( ch = getch() ) != ERR ) {
-			switch( ch ) {
-			case CONTROL_LEFT:
+			switch (ch) {
+			case 'x':
+			case 'X':
 				dynamic_cast<Editable*>( windows[ selected_column ] )->edit_value( EDIT_DOWN_FINE );
 				break;
-			case CONTROL_RIGHT:
+			case 's':
+			case 'S':
 				dynamic_cast<Editable*>( windows[ selected_column ] )->edit_value( EDIT_UP_FINE );
 				break;
-			case CONTROL_UP:
+			case 'a':
+			case 'A':
 				dynamic_cast<Editable*>( windows[ selected_column ] )->edit_value( EDIT_UP );
 				break;
-			case CONTROL_DOWN:
+			case 'z':
+			case 'Z':
 				dynamic_cast<Editable*>( windows[ selected_column ] )->edit_value( EDIT_DOWN );
 				break;
 			case KEY_LEFT:
@@ -1322,35 +1419,38 @@ public:
 			case '-':
 				engine->previous_preset();
 				break;
-			case KEY_F1:
+			case CONTROL_N:
 				engine->set_selected_preset( engine->create_preset() );
 				break;
-			case KEY_F2:
+			case CONTROL_B:
 				engine->save_preset( engine->get_selected_preset() );
 				break;
-			case KEY_F3:
+			case CONTROL_R:
 				engine->recall_preset( engine->get_selected_preset() );
 				break;
-			case KEY_F4:
-				engine->set_local_keyboard( !engine->is_local_keyboard() );
-				break;
-			case KEY_F5:
+			case CONTROL_W:
 				engine->set_alternate_wheel( !engine->is_alternate_wheel() );
 				break;
-			case KEY_F6:
+			case CONTROL_O:
 				engine->set_omni( !engine->is_omni() );
 				break;
-			case KEY_F7:
+			case CONTROL_V:
 				engine->set_mono( !engine->is_mono() );
 				break;
-			case KEY_F10:
+			case CONTROL_L:
+				engine->set_local_keyboard( !engine->is_local_keyboard() );
+				break;
+			case CONTROL_E:
 				leave = true;
 				break;
-			case KEY_F11:
+			case CONTROL_T:
 				engine->set_base_note( ( engine->get_base_note() + 1 ) % 128 );
 				break;
-			case KEY_F12:
+			case CONTROL_J:
 				engine->set_base_channel( ( engine->get_base_channel() + 1 ) % 15 );
+				break;
+			case CONTROL_F:
+				engine->set_note_map( (util::NoteMapType)( ( engine->get_note_map() + 1 ) % 2 ) );
 				break;
 			}
 		}

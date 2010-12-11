@@ -32,99 +32,6 @@
 
 namespace repulse {
 
-static const std::string BLANK = "";
-
-//MIDI_CONT_VOLUME                    /**< Controller: 07 Volume       0.    .. 2.   dB   Center                  */
-//MIDI_CONT_STRETCH                   /**< Controller: 09 Stretch     -1.    .. +1.  %    Center                  */
-//MIDI_CONT_TRANSPOSE                 /**< Controller: 14 Transpose   -48    .. +48  st   Center     Fijar        */
-//MIDI_CONT_LINKED                    /**< Controller: 15 Linked       0     .. 1    bool                         */
-//MIDI_CONT_SOUND_START               /**< Controller: 20 Start        0     .. 100  ms                           */
-//MIDI_CONT_SOUND_START_SOFT          /**< Controller: 21  Soft Start  0     .. 1    bool            Invertir?    */
-//MIDI_CONT_SOUND_TRANSPOSE           /**< Controller: 22 Transpose   -48    .. +48  st   Center                  */
-//MIDI_CONT_SOUND_TRANSPOSE_VELOCITY  /**< Controller: 23  Velocity    0.    .. 1.   %                            */
-//MIDI_CONT_SOUND_TRANSPOSE_RANDOM    /**< Controller: 24  Random      0.    .. 1.   %                            */
-//MIDI_CONT_SOUND_STRETCH             /**< Controller: 25 Stretch     -1.    .. +1.  %    Center                  */
-//MIDI_CONT_SOUND_STRETCH_VELOCITY    /**< Controller: 26  Velocity    0.    .. 1.   %                            */
-//MIDI_CONT_SOUND_STRETCH_TYPE        /**< Controller: 27  Type        0     .. 1    enum [A,B...]                */
-//MIDI_CONT_SOUND_OVER_DRIVE          /**< Controller: 28 Drive        0     .. 10   ???                          */
-//MIDI_CONT_SOUND_OVER_DRIVE_ACTIVE   /**< Controller: 29  Saturation  0     .. 1    bool            Invertir?    */
-//MIDI_CONT_SOUND_FREQUENCY_FREQUENCY /**< Controller: 48 Freq         30 Hz .. 18.5 kHz ???                      */
-//MIDI_CONT_SOUND_FREQUENCY_ACTIVE    /**< Controller: 49  Filter      0     .. 1    bool                         */
-//MIDI_CONT_SOUND_FREQUENCY_TYPE      /**< Controller: 50  Type        0     .. 4    enum [lp,hp,bp1,bp2,notch]   */
-//MIDI_CONT_SOUND_FREQUENCY_VELOCITY  /**< Controller: 51  Velocity    0.    .. 1.   %                            */
-//MIDI_CONT_SOUND_FREQUENCY_RANDOM    /**< Controller: 52  Random      0.    .. 1.   %                            */
-//MIDI_CONT_SOUND_FREQUENCY_RESONANCE /**< Controller: 53 Resonance    0     .. 10   ???                          */
-//MIDI_CONT_SOUND_DECAY               /**< Controller: 54 Decay        0     .. 10   s                            */
-//MIDI_CONT_SOUND_DECAY_TYPE          /**< Controller: 55  Type        0     .. 2    enum [infinite,gate,trigger] */
-//MIDI_CONT_SOUND_PANNING             /**< Controller: 56 Panning      -1.   .. -1.  % Center                     */
-//MIDI_CONT_SOUND_PANNING_VELOCITY    /**< Controller: 57  Velocity    0.    .. 1.   %                            */
-//MIDI_CONT_SOUND_PANNING_RANDOM      /**< Controller: 58  Random      0.    .. 1.   %                            */
-//MIDI_CONT_SOUND_VOLUME              /**< Controller: 59 Volume       0.    .. 2.   dB Center                    */
-//MIDI_CONT_SOUND_VOLUME_VELOCITY     /**< Controller: 60  Velocity    0.    .. 1.   %                            */
-//MIDI_CONT_SOUND_MUTED               /**< Controller: 61 Mute         0     .. 1    bool                         */
-//MIDI_CONT_SOUND_SOLOED = 62         /**< Controller: 62 Solo         0     .. 1    bool                         */
-
-static const unsigned char MIDI_CONT_BASE_CHANNEL = 9; // 10
-static const unsigned char MIDI_CONT_INIT = 8;
-static const unsigned char MIDI_CONT_STRIDE = 14;
-static const unsigned char MIDI_CONT_ENGINE_LINKED_C10 = 2;
-static const unsigned char MIDI_CONT_ENGINE_TRANSPOSE_C10 = 4;
-static const unsigned char MIDI_CONT_ENGINE_STRETCH_C10 = 5;
-static const unsigned char MIDI_CONT_ENGINE_VOLUME_C10 = 7;
-static const unsigned char MIDI_CONT_SOUND_START_C10 = 0;
-static const unsigned char MIDI_CONT_SOUND_START_SOFT_C10 = 1;
-static const unsigned char MIDI_CONT_SOUND_TRANSPOSE_C10 = 2;
-static const unsigned char MIDI_CONT_SOUND_STRETCH_C10 = 3;
-static const unsigned char MIDI_CONT_SOUND_OVER_DRIVE_C10 = 4;
-static const unsigned char MIDI_CONT_SOUND_OVER_DRIVE_ACTIVE_C10 = 5;
-static const unsigned char MIDI_CONT_SOUND_FILTER_FREQUENCY_C10 = 6;
-static const unsigned char MIDI_CONT_SOUND_FILTER_ACTIVE_C10 = 7;
-static const unsigned char MIDI_CONT_SOUND_FILTER_RESONANCE_C10 = 8;
-static const unsigned char MIDI_CONT_SOUND_DECAY_C10 = 9;
-static const unsigned char MIDI_CONT_SOUND_PANNING_C10 = 10;
-static const unsigned char MIDI_CONT_SOUND_VOLUME_C10 = 11;
-static const unsigned char MIDI_CONT_ENGINE_ALL_SOUND_OFF_C10 = 120;
-static const unsigned char MIDI_CONT_ENGINE_ALL_CONTROLLERS_OFF_C10 = 121;
-static const unsigned char MIDI_CONT_ENGINE_LOCAL_KEYBOARD_C10 = 122;
-static const unsigned char MIDI_CONT_ENGINE_ALL_NOTES_OFF_C10 = 123;
-static const unsigned char MIDI_CONT_ENGINE_OMNI_MODE_OFF_C10 = 124;
-static const unsigned char MIDI_CONT_ENGINE_OMNI_MODE_ON_C10 = 125;
-static const unsigned char MIDI_CONT_ENGINE_MONO_OPERATION_C10 = 126;
-static const unsigned char MIDI_CONT_ENGINE_POLY_OPERATION_C10 = 127;
-static const unsigned char MIDI_CONT_SOUND_TRANSPOSE_VELOCITY_C11 = 0;
-static const unsigned char MIDI_CONT_SOUND_TRANSPOSE_RANDOM_C11 = 1;
-static const unsigned char MIDI_CONT_SOUND_STRETCH_VELOCITY_C11 = 2;
-static const unsigned char MIDI_CONT_SOUND_STRETCH_TYPE_C11 = 3;
-static const unsigned char MIDI_CONT_SOUND_FILTER_TYPE_C11 = 4;
-static const unsigned char MIDI_CONT_SOUND_FILTER_VELOCITY_C11 = 5;
-static const unsigned char MIDI_CONT_SOUND_FILTER_RANDOM_C11 = 6;
-static const unsigned char MIDI_CONT_SOUND_DECAY_TYPE_C11 = 7;
-static const unsigned char MIDI_CONT_SOUND_PANNING_VELOCITY_C11 = 8;
-static const unsigned char MIDI_CONT_SOUND_PANNING_RANDOM_C11 = 9;
-static const unsigned char MIDI_CONT_SOUND_VOLUME_VELOCITY_C11 = 10;
-static const unsigned char MIDI_CONT_SOUND_MUTED_C11 = 11;
-static const unsigned char MIDI_CONT_SOUND_SOLOED_C11 = 12;
-
-class MidiControllerOffset {
-	unsigned char column;
-	unsigned char init;
-	unsigned char stride;
-	unsigned char base;
-public:
-	MidiControllerOffset() : column( 0 ), init( MIDI_CONT_INIT ),
-		stride( MIDI_CONT_STRIDE ), base( init ) {}
-	void set_column( const unsigned char& column ) {
-		this->column = column;
-		base = ( column * stride ) + init;
-	}
-	virtual ~MidiControllerOffset() {}
-	bool test( const unsigned char& controller, const unsigned char& offset ) const {
-		return ( base + offset ) == controller;
-	}
-};
-
-static const util::floating_t ZERO = 0;
-
 class IEngine;
 
 class EngineListener {
@@ -134,6 +41,8 @@ public:
 	virtual void on_stretch( IEngine* engine, const util::floating_t& stretch, const bool& fire = true ) {}
 	virtual void on_volume( IEngine* engine, const util::floating_t& volume, const bool& fire = true ) {}
 	virtual void on_transpose( IEngine* engine, const util::floating_t& transpose, const bool& fire = true ) {}
+	virtual void on_note_map( IEngine* engine, const util::NoteMapType& note_map, const bool& fire = true ) {}
+	virtual void on_base_note( IEngine* engine, const unsigned char& base_note, const bool& fire = true ) {}
 };
 
 typedef std::set<EngineListener*> EngineListenerSet;
@@ -145,33 +54,35 @@ public:
 	IEngine() {}
 	virtual ~IEngine() {}
 	virtual jack::Client* get_client() const { return 0; }
-    virtual const std::string& get_name() const { return BLANK; }
+    virtual const std::string& get_name() const { return util::BLANK; }
 	virtual void add_listener( EngineListener* engine_listener ) {}
 	virtual void remove_listener( EngineListener* engine_listener ) {}
 	virtual void add_midi_listener( alsa::MidiInputListener* midi_listener ) {}
 	virtual void remove_midi_listener( alsa::MidiInputListener* midi_listener ) {}
     virtual void set_transpose_wheel( const util::floating_t& transpose_wheel, const bool& fire = true ) {}
-    virtual const util::floating_t& get_transpose_wheel() const { return ZERO; }
+    virtual const util::floating_t& get_transpose_wheel() const { return util::ZERO; }
     virtual void set_transpose_offset( const util::floating_t& transpose_offset, const bool& fire = true ) {}
-    virtual const util::floating_t& get_transpose_offset() const { return ZERO; }
-    virtual const util::floating_t get_transpose() const { return ZERO; }
+    virtual const util::floating_t& get_transpose_offset() const { return util::ZERO; }
+    virtual const util::floating_t get_transpose() const { return util::ZERO; }
     virtual void set_stretch_wheel( const util::floating_t& stretch_wheel, const bool& fire = true ) {}
-    virtual const util::floating_t& get_stretch_wheel() const { return ZERO; }
+    virtual const util::floating_t& get_stretch_wheel() const { return util::ZERO; }
     virtual void set_stretch_offset( const util::floating_t& stretch_offset, const bool& fire = true ) {}
-    virtual const util::floating_t& get_stretch_offset() const { return ZERO; }
-    virtual const util::floating_t get_stretch() const { return ZERO; }
+    virtual const util::floating_t& get_stretch_offset() const { return util::ZERO; }
+    virtual const util::floating_t get_stretch() const { return util::ZERO; }
     virtual void set_volume( const util::floating_t& volume, const bool& fire = true ) {}
-	virtual const util::floating_t& get_volume() const { return ZERO; }
+	virtual const util::floating_t& get_volume() const { return util::ZERO; }
     virtual void set_linked( const bool& linked, const bool& fire = true ) {}
     virtual const bool is_linked() const { return false; }
     virtual Sound** get_sounds() { return 0; }
 	virtual void solo( const util::SoundIdentifier& id, const bool& active, const bool& fire = true ) {}
 	virtual bool is_soloed() const { return false; }
 	virtual bool is_omni() const { return false; }
-    virtual const unsigned char& get_base_channel() const { return MIDI_CONT_BASE_CHANNEL; }
-    virtual void set_base_channel( const unsigned char& base_channel ) {};
-    virtual const unsigned char& get_base_note() const { return MIDI_CONT_BASE_CHANNEL; }
+    virtual const unsigned char& get_base_channel() const { return util::MIDI_CONT_BASE_CHANNEL; }
+    virtual void set_base_channel( const unsigned char& base_channel ) {}
+    virtual const unsigned char& get_base_note() const { return util::MIDI_CONT_BASE_CHANNEL; }
     virtual void set_base_note( const unsigned char& base_note ) {};
+    virtual const util::NoteMapType& get_note_map() const { return util::NOTE_MAP_DEF_TYPE; }
+    virtual void set_note_map( const util::NoteMapType& note_map, const bool& fire = true ) {}
 };
 
 class Sound :
@@ -179,7 +90,8 @@ class Sound :
 	public jack::Listener,
 	public alsa::MidiInputListener,
 	public EngineListener  {
-	MidiControllerOffset mco;
+	util::MidiNoteOffset mno;
+	util::MidiControllerOffset mco;
 	jack::sample_t* buffer;
     util::floating_t sample;
 	IEngine* engine;
@@ -236,7 +148,10 @@ public:
     	muted( false ),
     	soloed( false ),
     	playing( true ) {
-    	mco.set_column( id );
+    	mno.set_id( id );
+    	mno.set_base_note( engine->get_base_note() );
+    	mno.set_note_map( engine->get_note_map() );
+    	mco.set_id( id );
         transpose_modulation.set_range(
         		filtering::TUNER_MIN_TRANSPOSE, filtering::TUNER_MAX_TRANSPOSE );
         filter_frequency_modulation.set_range(
@@ -595,17 +510,23 @@ public:
 		tuner->set_transpose( transpose_modulation.modulate( util::adjust_value(
 				this->transpose + transpose, filtering::TUNER_MIN_TRANSPOSE, filtering::TUNER_MAX_TRANSPOSE ) ) );
 	}
-    ///////////////////////////////////////////////////////////////
+	virtual void on_note_map( IEngine* engine, const util::NoteMapType& note_map, const bool& fire = true ) {
+		mno.set_note_map( note_map );
+	}
+	virtual void on_base_note( IEngine* engine, const unsigned char& base_note, const bool& fire = true ) {
+		mno.set_base_note( base_note );
+	}
+	///////////////////////////////////////////////////////////////
 	void on_note_off( alsa::IMidiInput* input, const midi::NoteOff* event ) {
 		if ( engine->is_omni() || event->get_channel() == engine->get_base_channel() ) {
-			if ( event->get_note() == ( engine->get_base_note() + id ) ) {
+			if ( mno.test( event->get_note() ) ) {
 				note_off();
 			}
 		}
 	}
 	void on_note_on( alsa::IMidiInput* input, const midi::NoteOn* event ) {
 		if ( engine->is_omni() || event->get_channel() == engine->get_base_channel() ) {
-			if ( event->get_note() == ( engine->get_base_note() + id ) ) {
+			if ( mno.test( event->get_note() ) ) {
 				if ( event->is_note_off() ) {
 					note_off();
 				} else {
@@ -619,68 +540,68 @@ public:
 	}
 	void on_controller( alsa::IMidiInput* input, const midi::Controller* event ) {
 		if ( event->get_channel() == engine->get_base_channel() ) {
-			if ( mco.test( event->get_controller(), MIDI_CONT_SOUND_START_C10 ) ) {
+			if ( mco.test( event->get_controller(), util::MIDI_CONT_SOUND_START_C10 ) ) {
 				set_start_time( util::controller_to_decimal( event->get_value(),
 						filtering::WAVE_MIN_START_TIME, filtering::WAVE_MAX_START_TIME ), false );
-			} else if ( mco.test( event->get_controller(), MIDI_CONT_SOUND_START_SOFT_C10 ) ) {
+			} else if ( mco.test( event->get_controller(), util::MIDI_CONT_SOUND_START_SOFT_C10 ) ) {
 				set_start_soft( util::controller_to_bool( event->get_value() ), false );
-			} else if ( mco.test( event->get_controller(), MIDI_CONT_SOUND_TRANSPOSE_C10 ) ) {
+			} else if ( mco.test( event->get_controller(), util::MIDI_CONT_SOUND_TRANSPOSE_C10 ) ) {
 				set_transpose( util::controller_to_decimal_center( event->get_value(),
 						filtering::TUNER_MIN_TRANSPOSE, filtering::TUNER_MAX_TRANSPOSE ), false );
-			} else if ( mco.test( event->get_controller(), MIDI_CONT_SOUND_STRETCH_C10 ) ) {
+			} else if ( mco.test( event->get_controller(), util::MIDI_CONT_SOUND_STRETCH_C10 ) ) {
 				set_stretch( util::controller_to_decimal_center( event->get_value(),
 						filtering::TIME_STRETCH_MIN_STRETCH, filtering::TIME_STRETCH_MAX_STRETCH ), false );
-			} else if ( mco.test( event->get_controller(), MIDI_CONT_SOUND_OVER_DRIVE_C10 ) ) {
+			} else if ( mco.test( event->get_controller(), util::MIDI_CONT_SOUND_OVER_DRIVE_C10 ) ) {
 				set_over_drive_drive( util::controller_to_decimal( event->get_value(),
 						filtering::OVER_DRIVE_MIN_DRIVE, filtering::OVER_DRIVE_MAX_DRIVE ), false );
-			} else if ( mco.test( event->get_controller(), MIDI_CONT_SOUND_FILTER_FREQUENCY_C10 ) ) {
+			} else if ( mco.test( event->get_controller(), util::MIDI_CONT_SOUND_FILTER_FREQUENCY_C10 ) ) {
 				set_filter_frequency( util::controller_to_decimal( event->get_value(),
 						filtering::FREQUENCY_MIN_FREQUENCY,
 						filtering::FREQUENCY_MAX_FREQUENCY( engine->get_client() ) ), false );
-			} else if ( mco.test( event->get_controller(), MIDI_CONT_SOUND_FILTER_RESONANCE_C10 ) ) {
+			} else if ( mco.test( event->get_controller(), util::MIDI_CONT_SOUND_FILTER_RESONANCE_C10 ) ) {
 				set_filter_resonance( util::controller_to_decimal( event->get_value(),
 						filtering::FREQUENCY_MIN_RESONANCE, filtering::FREQUENCY_MAX_RESONANCE ), false );
-			} else if ( mco.test( event->get_controller(), MIDI_CONT_SOUND_DECAY_C10 ) ) {
+			} else if ( mco.test( event->get_controller(), util::MIDI_CONT_SOUND_DECAY_C10 ) ) {
 				set_decay_time( util::controller_to_decimal( event->get_value(),
 						envelope::MIN_DECAY, envelope::MAX_DECAY ), false );
-			} else if ( mco.test( event->get_controller(), MIDI_CONT_SOUND_PANNING_C10 ) ) {
+			} else if ( mco.test( event->get_controller(), util::MIDI_CONT_SOUND_PANNING_C10 ) ) {
 				set_panning( util::controller_to_decimal_center( event->get_value(),
 						filtering::PANNER_MIN_PANNING, filtering::PANNER_MAX_PANNING ), false );
-			} else if ( mco.test( event->get_controller(), MIDI_CONT_SOUND_VOLUME_C10 ) ) {
+			} else if ( mco.test( event->get_controller(), util::MIDI_CONT_SOUND_VOLUME_C10 ) ) {
 				set_volume( util::controller_to_decimal_center( event->get_value(),
 						filtering::GAIN_MIN_VOLUME, filtering::GAIN_MAX_VOLUME ), false );
-			} else if ( mco.test( event->get_controller(), MIDI_CONT_SOUND_FILTER_ACTIVE_C10 ) ) {
+			} else if ( mco.test( event->get_controller(), util::MIDI_CONT_SOUND_FILTER_ACTIVE_C10 ) ) {
 				set_filter_active( util::controller_to_bool( event->get_value() ), false );
-			} else if ( mco.test( event->get_controller(), MIDI_CONT_SOUND_OVER_DRIVE_ACTIVE_C10 ) ) {
+			} else if ( mco.test( event->get_controller(), util::MIDI_CONT_SOUND_OVER_DRIVE_ACTIVE_C10 ) ) {
 				set_over_drive_active( util::controller_to_bool( event->get_value() ), false );
 			}
 
 		} else if ( event->get_channel() == engine->get_base_channel() + 1 ) {
-			if ( mco.test( event->get_controller(), MIDI_CONT_SOUND_TRANSPOSE_VELOCITY_C11 ) ) {
+			if ( mco.test( event->get_controller(), util::MIDI_CONT_SOUND_TRANSPOSE_VELOCITY_C11 ) ) {
 				set_transpose_velocity( util::controller_to_percentage( event->get_value() ), false );
-			} else if ( mco.test( event->get_controller(), MIDI_CONT_SOUND_STRETCH_TYPE_C11 ) ) {
+			} else if ( mco.test( event->get_controller(), util::MIDI_CONT_SOUND_STRETCH_TYPE_C11 ) ) {
 				set_stretch_type( filtering::TimeStretch::controller_to_stretch_type( event->get_value() ), false );
-			} else if ( mco.test( event->get_controller(), MIDI_CONT_SOUND_FILTER_TYPE_C11 ) ) {
+			} else if ( mco.test( event->get_controller(), util::MIDI_CONT_SOUND_FILTER_TYPE_C11 ) ) {
 				set_filter_type( filtering::Frequency::controller_to_filter_type( event->get_value() ), false );
-			} else if ( mco.test( event->get_controller(), MIDI_CONT_SOUND_TRANSPOSE_RANDOM_C11 ) ) {
+			} else if ( mco.test( event->get_controller(), util::MIDI_CONT_SOUND_TRANSPOSE_RANDOM_C11 ) ) {
 				set_transpose_random( util::controller_to_percentage( event->get_value() ), false );
-			} else if ( mco.test( event->get_controller(), MIDI_CONT_SOUND_STRETCH_VELOCITY_C11 ) ) {
+			} else if ( mco.test( event->get_controller(), util::MIDI_CONT_SOUND_STRETCH_VELOCITY_C11 ) ) {
 				set_stretch_velocity( util::controller_to_percentage( event->get_value() ), false );
-			} else if ( mco.test( event->get_controller(), MIDI_CONT_SOUND_FILTER_VELOCITY_C11 ) ) {
+			} else if ( mco.test( event->get_controller(), util::MIDI_CONT_SOUND_FILTER_VELOCITY_C11 ) ) {
 				set_filter_frequency_velocity( util::controller_to_percentage( event->get_value() ), false );
-			} else if ( mco.test( event->get_controller(), MIDI_CONT_SOUND_FILTER_RANDOM_C11 ) ) {
+			} else if ( mco.test( event->get_controller(), util::MIDI_CONT_SOUND_FILTER_RANDOM_C11 ) ) {
 				set_filter_frequency_random( util::controller_to_percentage( event->get_value() ), false );
-			} else if ( mco.test( event->get_controller(), MIDI_CONT_SOUND_PANNING_VELOCITY_C11 ) ) {
+			} else if ( mco.test( event->get_controller(), util::MIDI_CONT_SOUND_PANNING_VELOCITY_C11 ) ) {
 				set_panning_velocity( util::controller_to_percentage( event->get_value() ), false );
-			} else if ( mco.test( event->get_controller(), MIDI_CONT_SOUND_PANNING_RANDOM_C11 ) ) {
+			} else if ( mco.test( event->get_controller(), util::MIDI_CONT_SOUND_PANNING_RANDOM_C11 ) ) {
 				set_panning_random( util::controller_to_percentage( event->get_value() ), false );
-			} else if ( mco.test( event->get_controller(), MIDI_CONT_SOUND_VOLUME_VELOCITY_C11 ) ) {
+			} else if ( mco.test( event->get_controller(), util::MIDI_CONT_SOUND_VOLUME_VELOCITY_C11 ) ) {
 				set_volume_velocity( util::controller_to_percentage( event->get_value() ), false );
-			} else if ( mco.test( event->get_controller(), MIDI_CONT_SOUND_DECAY_TYPE_C11 ) ) {
+			} else if ( mco.test( event->get_controller(), util::MIDI_CONT_SOUND_DECAY_TYPE_C11 ) ) {
 				set_decay_type( envelope::Machine::controller_to_decay_type( event->get_value() ), false );
-			} else if ( mco.test( event->get_controller(), MIDI_CONT_SOUND_MUTED_C11 ) ) {
+			} else if ( mco.test( event->get_controller(), util::MIDI_CONT_SOUND_MUTED_C11 ) ) {
 				set_muted( util::controller_to_bool( event->get_value() ), false );
-			} else if ( mco.test( event->get_controller(), MIDI_CONT_SOUND_SOLOED_C11 ) ) {
+			} else if ( mco.test( event->get_controller(), util::MIDI_CONT_SOUND_SOLOED_C11 ) ) {
 				engine->solo( get_id(), util::controller_to_bool( event->get_value() ), false );
 			}
 		}
@@ -718,7 +639,6 @@ class Engine : public IEngine, public jack::Listener, public alsa::MidiInputList
     jack::sample_t* buffer_left;
     alsa::Sequencer* sequencer;
     alsa::MidiInput* midi_input;
-    util::floating_t mix_factor;
     util::floating_t stretch_offset;
     util::floating_t stretch_wheel;
     util::floating_t volume;
@@ -734,6 +654,7 @@ class Engine : public IEngine, public jack::Listener, public alsa::MidiInputList
 	bool alternate_wheel;
 	bool omni;
 	bool mono;
+	util::NoteMapType note_map;
 protected:
     void fire_stretch( const util::floating_t& stretch, const bool& fire = true ) {
     	EngineListenerSet::const_iterator it;
@@ -753,6 +674,18 @@ protected:
     		(*it)->on_volume( this, volume, fire );
     	}
     }
+    void fire_note_map( const util::NoteMapType& note_map, const bool& fire = true ) {
+    	EngineListenerSet::const_iterator it;
+    	for ( it = listeners.begin(); it != listeners.end(); it++ ) {
+    		(*it)->on_note_map( this, note_map, fire );
+    	}
+    }
+    void fire_base_note( const unsigned char& base_note, const bool& fire = true ) {
+    	EngineListenerSet::const_iterator it;
+    	for ( it = listeners.begin(); it != listeners.end(); it++ ) {
+    		(*it)->on_base_note( this, base_note, fire );
+    	}
+    }
 public:
     Engine( const std::string& name ) :
     	IEngine(),
@@ -763,7 +696,6 @@ public:
         output_right( new jack::AudioOutput( client, "out-R" ) ),
         sequencer( new alsa::Sequencer( name ) ),
         midi_input( new alsa::MidiInput( sequencer, name ) ),
-		mix_factor( 1 / (util::floating_t)util::MAX_SOUNDS ),
 		stretch_offset( filtering::TIME_STRETCH_DEF_STRETCH ),
 		stretch_wheel( 0 ),
 		volume( filtering::GAIN_DEF_VOLUME ),
@@ -772,12 +704,13 @@ public:
 		linked( false ),
 		soloed( 0 ),
 		selected_preset( 0 ),
-		base_channel( MIDI_CONT_BASE_CHANNEL ),
+		base_channel( util::MIDI_CONT_BASE_CHANNEL ),
 		base_note( midi::MIDDLE_C ),
 		local_keyboard( false ),
 		alternate_wheel( false ),
 		omni( true ),
-		mono( false ) {
+		mono( false ),
+		note_map( util::NOTE_MAP_DEF_TYPE ) {
         std::ostringstream o;
         for ( size_t i = 0; i < util::MAX_SOUNDS; ++i ) {
         	o << "out" << ( i + 1 );
@@ -814,6 +747,13 @@ public:
         delete client;
     }
     //////////////////////////////////////////////////////
+    const util::NoteMapType& get_note_map() const {
+    	return note_map;
+    }
+	void set_note_map( const util::NoteMapType& note_map, const bool& fire = true ) {
+		this->note_map = note_map;
+		fire_note_map( note_map, fire );
+	}
     const std::string& get_name() const {
     	return client->get_name();
     }
@@ -834,6 +774,7 @@ public:
     }
     void set_base_note( const unsigned char& base_note, const bool& fire = true ) {
     	this->base_note = base_note;
+    	fire_base_note( base_note );
     }
     const bool is_local_keyboard() const {
     	return local_keyboard;
@@ -934,6 +875,7 @@ public:
 			preset.get_engine().set_alternate_wheel( is_alternate_wheel() );
 			preset.get_engine().set_omni( is_omni() );
 			preset.get_engine().set_mono( is_mono() );
+			preset.get_engine().set_note_map( get_note_map() );
 			size_t i = 0;
 			persistence::Sounds::iterator it;
 			for ( it = preset.get_sounds().begin(); it != preset.get_sounds().end() && i < util::MAX_SOUNDS; ++it, ++i ) {
@@ -955,6 +897,7 @@ public:
 			set_alternate_wheel( preset.get_engine().is_alternate_wheel(), fire );
 			set_omni( preset.get_engine().is_omni(), fire );
 			set_mono( preset.get_engine().is_mono(), fire );
+			set_note_map( preset.get_engine().get_note_map(), fire );
 			size_t i = 0;
 			persistence::Sounds::iterator it;
 			for ( it = preset.get_sounds().begin(); it != preset.get_sounds().end() && i < util::MAX_SOUNDS; ++it, ++i ) {
@@ -1078,8 +1021,8 @@ public:
 				buffer_sound = sound->get_buffer();
 				sound->filter( buffer_sound );
 				for ( jack_nframes_t j = 0; j < buffer_size; ++j ) {
-					buffer_right[j] += buffer_sound[j] * sound->get_mix_right() * mix_factor;
-					buffer_left[j] += buffer_sound[j] * sound->get_mix_left() * mix_factor;
+					buffer_right[j] += buffer_sound[j] * sound->get_mix_right();
+					buffer_left[j] += buffer_sound[j] * sound->get_mix_left();
 				}
 			}
         }
@@ -1104,30 +1047,30 @@ public:
 	//////////////////////////////////////////////////////////////////////////
 	void on_controller( alsa::IMidiInput* input, const midi::Controller* event ) {
 		if ( is_omni() || event->get_channel() == get_base_channel() ) {
-			if ( event->get_controller() == MIDI_CONT_ENGINE_LINKED_C10 ) {
+			if ( event->get_controller() == util::MIDI_CONT_ENGINE_LINKED_C10 ) {
 				set_linked( util::controller_to_bool( event->get_value() ), false );
-			} else if ( event->get_controller() == MIDI_CONT_ENGINE_TRANSPOSE_C10 ) {
+			} else if ( event->get_controller() == util::MIDI_CONT_ENGINE_TRANSPOSE_C10 ) {
 				set_transpose_offset( util::controller_to_decimal_center( event->get_value(),
 						filtering::TUNER_MIN_TRANSPOSE, filtering::TUNER_MAX_TRANSPOSE ), false );
-			} else if ( event->get_controller() == MIDI_CONT_ENGINE_STRETCH_C10 ) {
+			} else if ( event->get_controller() == util::MIDI_CONT_ENGINE_STRETCH_C10 ) {
 				set_stretch_offset( util::controller_to_decimal_center( event->get_value(),
 						filtering::TIME_STRETCH_MIN_STRETCH, filtering::TIME_STRETCH_MAX_STRETCH ), false );
-			} else if ( event->get_controller() == MIDI_CONT_ENGINE_VOLUME_C10 ) {
+			} else if ( event->get_controller() == util::MIDI_CONT_ENGINE_VOLUME_C10 ) {
 				set_volume( util::controller_to_decimal_center( event->get_value(),
 						filtering::GAIN_MIN_VOLUME, filtering::GAIN_MAX_VOLUME ), false );
-			} else if ( event->get_controller() == MIDI_CONT_ENGINE_ALL_SOUND_OFF_C10 ) {
+			} else if ( event->get_controller() == util::MIDI_CONT_ENGINE_ALL_SOUND_OFF_C10 ) {
 				all_sound_off();
-			} else if ( event->get_controller() == MIDI_CONT_ENGINE_ALL_CONTROLLERS_OFF_C10 ) {
+			} else if ( event->get_controller() == util::MIDI_CONT_ENGINE_ALL_CONTROLLERS_OFF_C10 ) {
 				all_controllers_off();
-			} else if ( event->get_controller() == MIDI_CONT_ENGINE_LOCAL_KEYBOARD_C10 ) {
+			} else if ( event->get_controller() == util::MIDI_CONT_ENGINE_LOCAL_KEYBOARD_C10 ) {
 				set_local_keyboard( util::controller_to_bool( event->get_value() ) );
-			} else if ( event->get_controller() == MIDI_CONT_ENGINE_ALL_NOTES_OFF_C10 ) {
+			} else if ( event->get_controller() == util::MIDI_CONT_ENGINE_ALL_NOTES_OFF_C10 ) {
 				all_notes_off();
-			} else if ( event->get_controller() == MIDI_CONT_ENGINE_OMNI_MODE_OFF_C10 ) {
+			} else if ( event->get_controller() == util::MIDI_CONT_ENGINE_OMNI_MODE_OFF_C10 ) {
 				set_omni( !util::controller_to_bool( event->get_value() ) );
-			} else if ( event->get_controller() == MIDI_CONT_ENGINE_OMNI_MODE_ON_C10 ) {
+			} else if ( event->get_controller() == util::MIDI_CONT_ENGINE_OMNI_MODE_ON_C10 ) {
 				set_omni( util::controller_to_bool( event->get_value() ) );
-			} else if ( event->get_controller() == MIDI_CONT_ENGINE_MONO_OPERATION_C10 ) {
+			} else if ( event->get_controller() == util::MIDI_CONT_ENGINE_MONO_OPERATION_C10 ) {
 				set_mono( util::controller_to_bool( event->get_value() ) );
 			}
 		}
