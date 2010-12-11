@@ -53,7 +53,7 @@ CPP_DEPS += \
 soundtouch/%.o: ../soundtouch/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -I/usr/include -I/usr/lib/gcc/i486-slackware-linux/4.4.4/include -I/usr/include/c++/4.4.4 -O3 -g3 -p -pg -pedantic -Wall -c -fmessage-length=0 -ansi -msse2 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
+	g++ -I/usr/include -I/usr/lib/gcc/i486-slackware-linux/4.4.4/include -I/usr/include/c++/4.4.4 -O3 -g3 -p -pg -pedantic -Wall -c -fmessage-length=0 -ansi  -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
