@@ -4,5 +4,5 @@
 
 USER_OBJS := ../soundtouch/source/SoundTouch/.libs/libSoundTouch.a
 
-LIBS := -lasound -lsamplerate -lcurses -lsndfile -ljack
+LIBS := -lasound -lsamplerate -lncurses -lsndfile -ljack
 

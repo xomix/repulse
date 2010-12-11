@@ -79,6 +79,7 @@ static const std::string LOCAL_KEYBOARD = "localKeyboard";
 static const std::string ALTERNATE_WHEEL = "alternateWheel";
 static const std::string OMNI = "omni";
 static const std::string MONO = "mono";
+static const std::string NOTE_MAP = "noteMap";
 }
 
 static inline std::string bool_to_xml( const bool& value ) {
@@ -120,6 +121,32 @@ static inline util::floating_t xml_to_floating( const std::string& value ) {
 	std::stringstream o;
 	o << value;
 	o >> ret;
+	return ret;
+}
+
+static const std::string NOTE_MAP_KEYBOARD = "keyboard";
+static const std::string NOTE_MAP_PADS = "pads";
+
+static inline std::string note_map_type_to_xml( const util::NoteMapType& value ) {
+	std::string ret = NOTE_MAP_KEYBOARD;
+	switch ( value ) {
+	case util::NOTE_MAP_KEYBOARD:
+		ret = NOTE_MAP_KEYBOARD;
+		break;
+	case util::NOTE_MAP_PADS:
+		ret = NOTE_MAP_PADS;
+		break;
+	}
+	return ret;
+}
+
+static inline util::NoteMapType xml_to_note_map_type( const std::string& value ) {
+	util::NoteMapType ret = util::NOTE_MAP_DEF_TYPE;
+	if ( NOTE_MAP_KEYBOARD == value ) {
+		ret = util::NOTE_MAP_KEYBOARD;
+	} else if ( NOTE_MAP_PADS == value ) {
+		ret = util::NOTE_MAP_PADS;
+	}
 	return ret;
 }
 
@@ -664,6 +691,7 @@ class Engine : public Serializable {
 	bool alternate_wheel;
 	bool omni;
 	bool mono;
+	util::NoteMapType note_map;
 public:
 	Engine() :
 		volume( filtering::GAIN_DEF_VOLUME ),
@@ -675,8 +703,15 @@ public:
 		local_keyboard( true ),
 		alternate_wheel( false ),
 		omni( true ),
-		mono( false ) {}
+		mono( false ),
+		note_map( util::NOTE_MAP_DEF_TYPE ) {}
 	virtual ~Engine() {}
+	void set_note_map( const util::NoteMapType& note_map ) {
+	    this->note_map = note_map;
+	}
+	const util::NoteMapType& get_note_map() const {
+	    return note_map;
+	}
 	void set_volume( const util::floating_t& volume ) {
 	    this->volume = volume;
 	}
@@ -768,6 +803,9 @@ public:
 		if ( element.Attribute( attr::MONO ) ) {
 			set_mono( xml_to_bool( *element.Attribute( attr::MONO ) ) );
 		}
+		if ( element.Attribute( attr::NOTE_MAP ) ) {
+			set_note_map( xml_to_note_map_type( *element.Attribute( attr::NOTE_MAP ) ) );
+		}
 	}
 	const TiXmlElement& serialize( TiXmlElement& element ) const {
 		element.SetAttribute( attr::VOLUME, floating_to_xml( get_volume() ) );
@@ -780,6 +818,7 @@ public:
 		element.SetAttribute( attr::ALTERNATE_WHEEL, bool_to_xml( is_alternate_wheel() ) );
 		element.SetAttribute( attr::OMNI, bool_to_xml( is_omni() ) );
 		element.SetAttribute( attr::MONO, bool_to_xml( is_mono() ) );
+		element.SetAttribute( attr::NOTE_MAP, note_map_type_to_xml( get_note_map() ) );
 		return element;
 	}
 	void to_stream( std::ostringstream& o ) const {
@@ -794,6 +833,7 @@ public:
 		o << " alternate_wheel: " << std::boolalpha << is_alternate_wheel() << std::endl;
 		o << " omni: " << std::boolalpha << is_omni() << std::endl;
 		o << " mono: " << std::boolalpha << is_mono() << std::endl;
+		o << " note map: " << note_map_type_to_xml( get_note_map() ) << std::endl;
 	}
 };
 
