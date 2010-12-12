@@ -138,7 +138,8 @@ enum ColorType {
 	PRESET_NAME,
 	BUTTON_ON,
 	BUTTON_OFF,
-	BUTTON_ROTATORY
+	BUTTON_ROTATORY,
+	BUTTON_RED
 };
 
 class Color {
@@ -436,6 +437,14 @@ public:
 	}
 };
 
+class Reload : public Button {
+public:
+	Reload( const int& x, const int& y ) :
+		Button( x, y, to_width( "^U update", BUTTON_WIDTH )  ) {
+		set_color( BUTTON_RED );
+	}
+};
+
 class Omni : public Button {
 	repulse::Engine* engine;
 public:
@@ -487,7 +496,7 @@ public:
 			o << "^F pads";
 			break;
 		}
-		return o.str();
+		return to_width( o.str(), BUTTON_WIDTH );
 	}
 };
 
@@ -1087,6 +1096,7 @@ class Header : public Window {
 	repulse::Engine* engine;
 protected:
 	void generate_blocks() {
+		blocks.clear();
 		size_t i;
 		for ( i = 0; i < util::MAX_SOUNDS; ++i ) {
 			blocks.push_back( StringVector() );
@@ -1104,10 +1114,10 @@ protected:
 public:
 	Header( repulse::Engine* engine, const int& x, const int& y ) :
 		Window( SOUND_WIDTH * 10, HEADER_HEIGHT, x, y ), engine( engine ) {
-		generate_blocks();
 	}
 	~Header() {}
 	void draw() {
+		generate_blocks();
 		{
 			Bold bold( get_window() );
 			size_t i,j;
@@ -1227,6 +1237,7 @@ static const int CONTROL_F =  6; // note map
 static const int CONTROL_E =  5; // quit
 static const int CONTROL_J = 10; // base channel
 static const int CONTROL_T = 20; // base note
+static const int CONTROL_U = 21; // update
 
 static bool ui_resize = false;
 
@@ -1273,6 +1284,7 @@ protected:
 		init_pair( BUTTON_ON      , COLOR_BLACK , COLOR_WHITE   );
 		init_pair( BUTTON_OFF     , COLOR_WHITE , COLOR_BLACK   );
 		init_pair( BUTTON_ROTATORY, COLOR_YELLOW, COLOR_BLACK   );
+		init_pair( BUTTON_RED     , COLOR_RED   , COLOR_BLACK   );
 	}
 	void initialize_screens() {
 		int x = HELPER_WIDTH;
@@ -1300,6 +1312,7 @@ protected:
 		windows.push_back( new NoteMap       ( engine, BUTTON_WIDTH * 5, PRESET_ROW + 1 ) );
 		windows.push_back( new Note          ( engine, BUTTON_WIDTH * 6, PRESET_ROW + 1 ) );
 		windows.push_back( new Channel       ( engine, BUTTON_WIDTH * 7, PRESET_ROW + 1 ) );
+		windows.push_back( new Reload        (         BUTTON_WIDTH * 8, PRESET_ROW + 1 ) );
 		windows.push_back( new Exit          ( engine, BUTTON_WIDTH * 9, PRESET_ROW + 1 ) );
 	}
 	void terminate_screens() {
@@ -1451,6 +1464,9 @@ public:
 				break;
 			case CONTROL_F:
 				engine->set_note_map( (util::NoteMapType)( ( engine->get_note_map() + 1 ) % 2 ) );
+				break;
+			case CONTROL_U:
+				engine->load();
 				break;
 			}
 		}

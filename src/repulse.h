@@ -731,7 +731,6 @@ public:
 		}
         client->add_jack_listener( this );
 		midi_input->add_listener( this );
-        auto_connect();
     }
     ~Engine() {
     	client->deactivate();
@@ -807,6 +806,14 @@ public:
     void set_document_file( const std::string& document_file ) {
     	document.set_file( document_file );
     }
+    const std::string& get_document_file() const {
+    	return document.get_file();
+    }
+    void load() {
+    	load_document();
+    	load_waves();
+    	load_repulse();
+    }
     void load_document() {
     	document.load();
     }
@@ -814,12 +821,20 @@ public:
     	document.save();
     }
     void load_waves() {
-    	size_t i;
+    	util::StringPair base = util::path_split( util::string_strip( get_document_file() ) );
+    	std::string path;
+    	size_t i = 0;
     	persistence::Waves::const_iterator it;
     	for ( it = document.get_root().get_waves().begin();
     			it != document.get_root().get_waves().end() && i < util::MAX_SOUNDS; ++it, ++i ) {
-            get_sounds()[i]->set_file_name( it->get_file() );
-            get_sounds()[i]->load();
+    		path = util::string_strip( it->get_file() );
+    		if ( util::is_absolute( path ) ) {
+    			get_sounds()[i]->set_file_name( path );
+    		} else {
+    			base.second = path;
+    			get_sounds()[i]->set_file_name( util::path_join( base ) );
+    		}
+			get_sounds()[i]->load();
     	}
     }
     void load_repulse() {

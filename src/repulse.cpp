@@ -22,20 +22,35 @@
 #include "ui.h"
 
 int main( int argc, char* argv[] ) {
-    if ( argc >= 2 ) {
-    	repulse::Engine* engine = new repulse::Engine( argc >= 3 ? argv[2] : "repulse" );
-    	engine->set_document_file( argv[1] );
-    	engine->load_document();
-    	engine->load_waves();
-    	engine->load_repulse();
+	int c;
+	std::string client_name = "repulse";
+	bool auto_connect = false;
+    while ( ( c = getopt( argc, argv, "cn:" ) ) != -1 ) {
+    	switch ( c ) {
+    	case 'c':
+    		auto_connect = true;
+    		break;
+    	case 'n':
+    		client_name = optarg;
+    		break;
+    	}
+    }
+    if ( optind < argc ) {
+    	repulse::Engine* engine = new repulse::Engine( client_name );
+    	engine->set_document_file( argv[ optind ] );
+    	engine->load();
+    	if ( auto_connect ) {
+    		engine->auto_connect();
+    	}
 		ui::UI ui( engine );
 		while ( !ui.is_leave() ) {
 			ui.update();
 		}
 		engine->save_repulse();
 		delete engine;
+
     } else {
-        std::cout << "repulse <patch_file> [jack_client_name]" << std::endl;
+        std::cout << "repulse [-c] [-n jack_client_name] <patch_file>" << std::endl;
     }
     return 0;
 }
