@@ -211,6 +211,54 @@ public:
 	}
 };
 
+static const char PATH_SEP = '/';
+static const char STRIP_SET[] = " \t";
+
+typedef std::pair<std::string,std::string> StringPair;
+
+static inline std::string string_strip( const std::string& str ) {
+	std::string ret = str;
+	std::string::size_type pos = ret.find_last_not_of( STRIP_SET );
+	if ( pos != std::string::npos ) {
+		ret.erase( ret.begin() + pos + 1, ret.end() );
+	}
+	pos = ret.find_first_not_of( STRIP_SET );
+	if ( pos != std::string::npos ) {
+		ret.erase( ret.begin(), ret.begin() + pos );
+	}
+	return ret;
+}
+
+static inline bool is_absolute( const std::string& path ) {
+	return !path.empty() && path.at( 0 ) == PATH_SEP;
+}
+
+static inline std::string append_slash( const std::string& path ) {
+	return !path.empty() && path.at( path.size() - 1 ) != PATH_SEP ? path + PATH_SEP : path;
+}
+
+static inline StringPair path_split( const std::string& path ) {
+	StringPair ret;
+	std::string::size_type pos = path.find_last_of( PATH_SEP );
+	if ( pos != std::string::npos ) {
+		ret.first = path.substr( 0, pos );
+		ret.second = path.substr( pos + 1, path.size() - pos - 1 );
+	} else {
+		ret.second = path;
+	}
+	return ret;
+}
+
+static inline std::string path_join( const StringPair& path ) {
+	std::string ret;
+	if ( path.second.empty() || is_absolute( path.second ) ) {
+		ret = path.first;
+	} else {
+		ret = append_slash( path.first ) + path.second;
+	}
+	return ret;
+}
+
 } // namespace util
 
 #endif /* UTIL_H_ */
