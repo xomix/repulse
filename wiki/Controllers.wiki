@@ -4,11 +4,28 @@
 
 =MIDI controllers=
 
-==Parameter controllers==
-This are the default MIDI controllers, you should use the base channel
-10 and 11 to send the controllers in this table.<BR>
-In addition repulse receives the pitch wheel controller.<br>
+==Engine controllers==
+This are the controllers for the repulse engine, it listens to this controllers on the base channel 10 or omni.
+ * You can send a _Program Change_ to select between the first 128 presets in the machine.
+ * Sliding the _Pitch Wheel_ MIDI controller it is possible to apply a pitch transposition to all the voices.
 
+|| *Name*              || *#* || *Description* ||
+|| Program Change      || -   || Select a program between the 128 first contained in the machine. ||
+|| Pitch Wheel         || -   || Apply a pitch transposition by the given octaves to all the voices. ||
+|| Linked              || 2   || Stops the voice 7 when the voice 8 is started and viceversa (on/off). ||
+|| Rranspose           || 4   || Apply a pitch transposition by the given octaves to all the voices (signed). ||
+|| Stretch             || 5   || Apply time-stretch by the given percentage to all the voices (signed). ||
+|| Volume              || 7   || Decrease or increase the voice gain. ||
+|| All Sound Off       || 120 || Turns all the voices off (on/off). ||
+|| All Controllers Off || 121 || Resets all the machine parameters to a default state (on/off). ||
+|| Local Keyboard      || 122 || When activated the machine will interpret MIDI events and local surface events (on/off). ||
+|| All Notes Off       || 123 || Turns all the voices off and sends a note off event to each voice (on/off). ||
+|| Omni Mode Off       || 124 || Listen MIDI events only on channels 10 and 11 (on/off). ||
+|| Omni Mode On        || 125 || Listen MIDI events on any channel (on/off). ||
+|| Mono Operation      || 126 || Disable the stereo mix-down (on/off). ||
+|| Poly Operation      || 127 || Enable the stereo mix-down (on/off). ||
+
+==Full controller list==
 ===Channel 10===
 ||  *Controller* || *Engine* || *Voice 01* || *Voice 02* || *Voice 03* || *Voice 04* || *Voice 05* || *Voice 06* || *Voice 07* || *Voice 08* ||
 || Engine Linked || 2 || - || - || - || - || - || - || - || - ||
@@ -51,8 +68,3 @@ In addition repulse receives the pitch wheel controller.<br>
 || Sound Volume Velocity || - || 18 || 32 || 46 || 60 || 74 || 88 || 102 || 116 ||
 || Sound Muted || - || 19 || 33 || 47 || 61 || 75 || 89 || 103 || 117 ||
 || Sound Soloed || - || 20 || 34 || 48 || 62 || 76 || 90 || 104 || 118 ||
-
-==Additional controllers==
-You can tune the omni and local parameters via the GUI or MIDI, and the base channel and base note parameters via the GUI. This helps matching repulse to your hardware.<br>
-You can make the pitch bend paramenter (the wheel controller) control the repulse
-global pitch or the global length of the samples.
