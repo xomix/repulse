@@ -28,7 +28,7 @@ You can make the metal section lighter or heavier by activating the _filter_ opt
 
 ==Tune the samples==
 [http://img801.imageshack.us/img801/8207/transpose.png]<br>
-In this case we have _transposed_ down the ride cymbal and the hi-hats by one octave, and _transposed_ up the bass drum by one octave. This way new registers of the samples can be explored.<br>
+This time we have _transposed_ down the ride cymbal and the hi-hats by one octave, and _transposed_ up the bass drum by one octave. This way new registers of the samples can be explored.<br>
 
 ==Randomize some parameters==
 [http://img153.imageshack.us/img153/7692/randomize.png]<br>
