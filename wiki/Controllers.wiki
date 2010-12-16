@@ -8,7 +8,7 @@
 This are the controllers for the repulse engine, it listens to this controllers on the base channel 10 or omni.
  * You can send a _Program Change_ to select between the first 128 presets in the machine.
  * Sliding the _Pitch Wheel_ MIDI controller it is possible to apply a pitch transposition to all the voices.<br>
-   You can switch the _Wheel_ toggle to make the _Pitch Wheel_ control the overall time-stretch.
+You can switch the _Wheel_ toggle to make the _Pitch Wheel_ control the overall time-stretch.
 
 || *Name*              || *#* || *Description* ||
 || Program Change      || -   || Select a program between the 128 first contained in the machine. ||
