@@ -26,7 +26,8 @@ This are the controllers for the repulse engine, it listens to this controllers 
 || Poly Operation      || 127 || Enable the stereo mix-down (on/off). ||
 
 ==Voice controllers==
-Keep in mind that the number of controllers spans two midi channels (base channels 10 and 11).<br>
+Almost every parameter in the machine can be controlled via MIDI. The number of controllers spans two midi channels (base channels 10 and 11).<br>
+In MIDI channel 10 you have the common controllers, in MIDI channel 11 you can find the modulation controllers. The omni switch does not affect the voice controllers, you have to send them in their channel.<br>
 This is the full list of voice (and engine) controllers.
 
  * The machine always receives voice controllers on channels 10 and 11. The MIDI base channel can be changed via the GUI.
