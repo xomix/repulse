@@ -82,28 +82,27 @@ By default the engine name is repulse. And repulse searches for wave files relat
 [http://img219.imageshack.us/img219/8738/screenv001.png]
 
 ==Keyboard controls==
- * _Arrow key:_ moves the cursor in the spread-sheet like grid.
- * _Control key:_ press control and arrow keys to change the values.
+ * _Arrow keys:_ moves the cursor in the spread-sheet like grid.
  * _+ key:_ increment the selected preset number.
  * _- key:_ decrement the selected preset number.
- * _F1 key:_ create a new preset.
- * _F2 key:_ save the current preset.
- * _F3 key:_ recall the currently selected preset.
- * _F4 key:_ local on/off toggle.
+ * _CONTROL + N:_ create a new preset.
+ * _CONTROL + B:_ save the current preset.
+ * _CONTROL + R:_ recall the currently selected preset.
+ * _CONTROL + L:_ local on/off toggle.
    * When active the machine will interpret its control surface events and MIDI events.
    * When deactivated the machine will interpret only MIDI events.
- * _F5 key:_ alternate wheel toggle.
+ * _CONTROL + W:_ alternate wheel toggle.
    * when activated the pitch bend wheel controls the engine's time stretch value.
    * When deactivated the pitch bend wheel controls the engine's transpose value.
- * _F6 key:_ omni on/off toggle.
+ * _CONTROL + O:_ omni on/off toggle.
    * When activated the machine will receive MIDI events in any channel.
    * When deactivated the machine will receive MIDI events only the base channel (10).
- * _F7 key:_ Mono on/off toggle.
+ * _CONTROL + V:_ Mono on/off toggle.
    * When activated the machine operates in mono and does not mix-down the stereo channel.
    * When deactivated the machine operates in mono and does the mix-down of the stereo channel.
- * _F10 key:_ quits the software.
- * _F11 key:_ changes the MIDI base note, by default it is 60 (middle c).
- * _F12 key:_ changes the MIDI base channel, by default it is the channel 10.
+ * _CONTROL + E:_ quits the software.
+ * _CONTROL + T:_ changes the MIDI base note, by default it is 60 (middle c).
+ * _CONTROL + J:_ changes the MIDI base channel, by default it is the channel 10.
 
 ==Engine DSP controllers==
  * _Transpose:_ apply a pitch transposition by the given octaves to all voices.
