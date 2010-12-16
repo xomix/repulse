@@ -30,4 +30,4 @@ In this case we have _transposed_ down the ride cymbal and the hi-hats by one oc
 
 ==Randomize some parameters==
 You can achieve a real analogue feeling by slightly coupling the note velocity and random source to multiple parameters, this way the machine never really does the same thing two times... As you can see we have slightly altered the random value on the voices 2, 7 and 8. In addition you have all the other parameters changed highlighted.<br>
-[http://img72.imageshack.us/img72/4485/randompd.png]
+[http://img153.imageshack.us/img153/7692/randomize.png]
