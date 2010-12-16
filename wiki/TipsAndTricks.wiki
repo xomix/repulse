@@ -33,6 +33,5 @@ You can achieve a real analogue feeling by slightly coupling the note velocity a
 [http://img153.imageshack.us/img153/7692/randomize.png]
 
 ==Edit the XML file==
-You can edit the patch XML file an change any parameter while repulse is running.<br>
-Change the _file_ attribute of the _Wave_ tag and press _CONTROL + U _, repulse will reload the XML file contents and update the wave files and any other parameter.
-You can edit the XML patch file to [Editing rename, delete or shuffle] presets.
+You can edit the patch XML file an change any parameter while repulse is running. Change the _file_ attribute of the _Wave_ tag and press _CONTROL + U _, repulse will reload the XML file contents and update the wave files and any other parameter.
+You can edit the XML patch file to [EditingPresets rename, delete or shuffle] presets.
