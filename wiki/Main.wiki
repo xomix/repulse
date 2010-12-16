@@ -26,9 +26,8 @@ You can easily achieve a non-linear _analogue_ sound by tuning this parameters u
 If you drive the modulation parameters all the way up whacky effects can be achieved.
 
 ==How to download==
- 
- You can compile repulse from source code.<br>
- Check out the [Download] page to get the latest version.
+You can compile repulse from source code.<br>
+Check out the [Download] page to get the latest version.
 
 This is what repulse looks like, currently there is a curses GUI to drive the software (aside from MIDI control).<br><br>
 [http://img219.imageshack.us/img219/8738/screenv001.png]
