@@ -34,5 +34,8 @@ This time we have _transposed_ down the ride cymbal and the hi-hats by one octav
 [http://img153.imageshack.us/img153/7692/randomize.png]<br>
 You can achieve a real analogue feeling by slightly coupling the note velocity and random source to multiple parameters, this way the machine never really does the same thing two times... As you can see we have slightly altered the random value on the voices 2, 7 and 8. In addition you have all the other parameters changed highlighted.<br>
 
-==Edit the XML file==
+==Reload the patch file==
 You can edit the patch XML file and change any parameter while repulse is running. Change the _file_ attribute of the _Wave_ tag and press _CONTROL + U _, repulse will reload the XML file contents and update the wave files and any other parameter changed in the XML file; but more important you dont have to quit repulse losing all the connection work. You can edit the XML patch file to [EditingPatches rename, delete or shuffle] patches.
+
+==Swap patches==
+The first 128 patches found in the patch file are assignable via the standard midi [Controllers controller] program change.<br>Sometimes is convenient to shuffle the first 128 pressets around.<br>You can do this by [EditingPatches editing the patch file].
