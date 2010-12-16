@@ -22,7 +22,8 @@ This are its key features:
  * And a lot of other [TipsAndTricks features]...
 
 Using the parameter modulation capabilities you can slightly randomize, or velocity control, the key parameters.<br>
-You can easily achieve a non-linear _analogue_ sound.<br>
+You can easily achieve a non-linear _analogue_ sound by tuning this parameters up and down slightly.<br>
+If you drive the modulation parameters all the way up whacky effects can be achieved.
 
 Repulse does not contain a sequencer, use any sequencer of your choice to control the sampler, try [http://www.filter24.org/seq24 Seq42] or [http://www.rosegardenmusic.com Rosegarden].
 
