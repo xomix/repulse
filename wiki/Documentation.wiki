@@ -2,7 +2,6 @@
 #labels Repulse,Documentation,README
 #sidebar TableOfContents
 
-_The reference for the repulse software._
 <wiki:toc max_depth="3" />
 
 =Introduction=
