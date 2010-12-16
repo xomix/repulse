@@ -7,7 +7,8 @@
 _[Download] | [Tutorial Tutorial] | [Documentation] | [EditingPatches Editing Patches] | [TipsAndTricks Tips and Tricks] | [Controllers MIDI Controllers]_
 
 ==What is repulse?==
-Repulse is a MIDI Jack real time sampler machine that can be used to play drum kits or other sounds. It has 8 voices of polyphony and supports a rich set of parameters per voice. This are its key features:
+Repulse is a MIDI Jack real time sampler machine that can be used to play drum kits or other sounds.<br>
+It has 8 voices of polyphony and supports a rich set of parameters per voice. This are its key features:
 
  * 8 voice sampler.
  * Transpose any voice in real time.
