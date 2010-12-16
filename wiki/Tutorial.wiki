@@ -3,3 +3,5 @@
 #sidebar TableOfContents
 
 =Tutorial=
+
+Awaiting the 0.0.1 release, please visit the [TipsAndTricks Tips and Tricks] page for some ideas on using repulse.
