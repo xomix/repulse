@@ -55,7 +55,7 @@ Becomes:
 
 ==Shuffling Patches==
 
-The first 128 patches found in the XML are assignable via the standard midi controller _program change_.<br>Sometimes is convenient to shuffle the first 128 pressets around.<br>
+The first 128 patches found in the XML are assignable via the standard midi [Controllers controller] program change.<br>Sometimes is convenient to shuffle the first 128 pressets around.<br>
 You can do this by simply swapping the preset tags:
 {{{
 <Presets>
