@@ -2,8 +2,8 @@
 #labels Repulse,Editing,Presets,Patches
 #sidebar TableOfContents
 
-=Editing Patches=
-==Creating a Patch File==
+=Editing patches=
+==Creating a patch File==
 You can create a preset by saving a text file with this content:
 
 {{{
@@ -24,7 +24,7 @@ You can create a preset by saving a text file with this content:
 And introducing a file value that corresponds to the location of your wave files.<br>
 The machine will look for wave files relative to the XML file directory, you can enter absolute paths too.<br>
 
-==Deleting Patches==
+==Deleting patches==
 
 You can delete a whole preset by removing its XML block:
 {{{
@@ -41,7 +41,7 @@ Becomes:
 </Presets>
 }}}
 
-==Renaming Patches==
+==Renaming uatches==
 
 You can rename a preset by changing its *name* attribute:
 {{{
@@ -53,7 +53,7 @@ Becomes:
     <Preset name="My Preset"><!-- other tags --></Preset>
 }}}
 
-==Shuffling Patches==
+==Swapping patches==
 
 The first 128 patches found in the XML are assignable via the standard midi [Controllers controller] program change.<br>Sometimes is convenient to shuffle the first 128 pressets around.<br>
 You can do this by simply swapping the preset tags:
