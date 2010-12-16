@@ -21,6 +21,8 @@ This are its key features:
  * Full MIDI compatibility.
  * And a lot of other [TipsAndTricks features]...
 
+The parameter modulation capabilities are so rich that you can slightly randomize, or velocity control, the key parameters to achieve a non-linear analogue sound.<br>
+
 Repulse does not contain a sequencer, use any sequencer of your choice to control the sampler, try [http://www.filter24.org/seq24 Seq42] or [http://www.rosegardenmusic.com Rosegarden].
 
 This is what repulse looks like, currently there is a curses GUI to drive the software (aside from MIDI control).<br><br>
