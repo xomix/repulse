@@ -7,7 +7,7 @@
 ==Engine controllers==
 This are the controllers for the repulse engine, it listens to this controllers on the base channel 10 or omni.
  * You can send a _Program Change_ to select between the first 128 presets in the machine.
- * Sliding the _Pitch Wheel_ MIDI controller it is possible to apply a pitch transposition to all the voices.
+ * Sliding the _Pitch Wheel_ MIDI controller it is possible to apply a pitch transposition to all the voices. You can switch the _Wheel_ toggle to make the _Pitch Wheel_ control the overall time-stretch.
 
 || *Name*              || *#* || *Description* ||
 || Program Change      || -   || Select a program between the 128 first contained in the machine. ||
@@ -26,7 +26,8 @@ This are the controllers for the repulse engine, it listens to this controllers 
 || Poly Operation      || 127 || Enable the stereo mix-down (on/off). ||
 
 ==Voice controllers==
-Almost every parameter in the machine can be controlled via MIDI. The number of controllers spans two midi channels (base channels 10 and 11).<br>
+Almost every parameter in the machine can be controlled via MIDI.
+<br>The number of controllers spans two midi channels (base channels 10 and 11).<br>
 In MIDI channel 10 you have the common controllers, in MIDI channel 11 you can find the modulation controllers. The omni switch does not affect the voice controllers, you have to send them in their channel.<br>
 This is the full list of voice (and engine) controllers.
 
