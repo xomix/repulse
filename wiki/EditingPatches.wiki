@@ -21,7 +21,7 @@ You can create a preset by saving a text file with this content:
 </Repulse>
 }}}
 
-And introducing a *file* value that corresponds to the location of your wave files.<br>
+And introducing a file value that corresponds to the location of your wave files.<br>
 The machine will look for wave files relative to the XML file directory, you can enter absolute paths too.<br>
 
 ==Deleting Patches==
