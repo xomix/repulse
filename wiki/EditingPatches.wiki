@@ -21,12 +21,12 @@ You can create a preset by saving a text file with this content:
 </Repulse>
 }}}
 
-And introducing a *file* value that corresponds to the location of your wave file.<br>
-The machine will look for wave files relative to its directory, you can enter absolute paths too.<br>
+And introducing a *file* value that corresponds to the location of your wave files.<br>
+The machine will look for wave files relative to the XML file directory, you can enter absolute paths too.<br>
 
 ==Deleting Patches==
 
-You can delete a whole preset by removing its complete XML block:
+You can delete a whole preset by removing its XML block:
 {{{
 <Presets>
     <Preset name="Preset 1"><!-- other tags --></Preset>
