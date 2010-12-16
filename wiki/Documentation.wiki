@@ -79,7 +79,7 @@ repulse your_patch.xml [engine_name]
 By default the engine name is repulse. And repulse searches for wave files relative to the binary location folder.
 
 =Curses GUI=
-[http://img228.imageshack.us/img228/8738/screenv001.png]
+[http://img219.imageshack.us/img219/8738/screenv001.png]
 
 ==Keyboard controls==
  * _Arrow key:_ moves the cursor in the spread-sheet like grid.
