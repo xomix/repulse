@@ -2,6 +2,8 @@
 #labels Repulse,Tips,Tricks,Configuration
 #sidebar TableOfContents
 
+<wiki:toc max_depth="3" />
+
 =Tips and Tricks=
 
 ==Use the overdrive to get an analogue feeling==
