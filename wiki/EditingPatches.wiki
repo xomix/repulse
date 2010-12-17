@@ -41,7 +41,7 @@ Becomes:
 </Presets>
 }}}
 
-==Renaming uatches==
+==Renaming patches==
 
 You can rename a preset by changing its *name* attribute:
 {{{
