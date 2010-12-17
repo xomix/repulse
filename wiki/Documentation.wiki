@@ -82,6 +82,10 @@ By default the engine name is repulse. And repulse searches for wave files relat
 
 ==Keyboard controls==
  * _Arrow keys:_ moves the cursor in the spread-sheet like grid.
+ * _A key:_ tune the selected cell parmeter up.
+ * _Z key:_ tune the selected cell parmeter down.
+ * _S key:_ tune the selected cell parmeter up, finer increment.
+ * _X key:_ tune the selected cell parmeter down, finer decrement.
  * _+ key:_ increment the selected preset number.
  * _- key:_ decrement the selected preset number.
  * _CONTROL + N:_ create a new preset.
@@ -148,12 +152,14 @@ By default the engine name is repulse. And repulse searches for wave files relat
  * _Solo:_ solo the selected voice.
  * _Join:_ stops the voice 7 when the voice 8 is started and viceversa.
 .
-=MIDI Control=
+=MIDI controllers=
 
 ==Engine controllers==
-This are the controllers for the repulse engine, it listens to this controllers on the base channel 10 or omni.
+This are the controllers for the repulse engine, it listens to this controllers on the base channel 10 and 11<br>
+Only the engine controllers are listened on any channel (omni).
  * You can send a _Program Change_ to select between the first 128 presets in the machine.
  * Sliding the _Pitch Wheel_ MIDI controller it is possible to apply a pitch transposition to all the voices.
+ * You can switch the _Wheel_ toggle to make the _Pitch Wheel_ control the overall time-stretch.
 
 || *Name*              || *#* || *Description* ||
 || Program Change      || -   || Select a program between the 128 first contained in the machine. ||
@@ -171,13 +177,59 @@ This are the controllers for the repulse engine, it listens to this controllers 
 || Mono Operation      || 126 || Disable the stereo mix-down (on/off). ||
 || Poly Operation      || 127 || Enable the stereo mix-down (on/off). ||
 
-<br>
 ==Voice controllers==
-The list of voice MIDI controllers is quite extensive.<br>
-You can check the [Controllers] page to view the complete list of voice controllers.
+Almost every parameter in the machine can be controlled via MIDI.
+<br>The number of controllers spans two midi channels, base channels 10 and 11.<br>
+In MIDI channel 10 you have the common controllers, in MIDI channel 11 you can find the modulation controllers.<br>
+The omni switch does not affect the voice controllers, you have to send them in their own channel.<br>
+The engine related controllers can received in omni.<br>
+This is the full list of voice (and engine) controllers.
 
  * The machine always receives voice controllers on channels 10 and 11. The MIDI base channel can be changed via the GUI.
- * The machine receives note on message for the MIDI notes 60 to 68. The MIDI base note can be changed via the GUI.
+ * The machine receives note on message for the MIDI notes 60 to 67. The MIDI base note can be changed via the GUI.
+
+===Channel 10===
+||  *Controller* || *Engine* || *Voice 01* || *Voice 02* || *Voice 03* || *Voice 04* || *Voice 05* || *Voice 06* || *Voice 07* || *Voice 08* ||
+|| Engine Linked || 2 || - || - || - || - || - || - || - || - ||
+|| Engine Transpose || 4 || - || - || - || - || - || - || - || - ||
+|| Engine Stretch || 5 || - || - || - || - || - || - || - || - ||
+|| Engine Volume || 7 || - || - || - || - || - || - || - || - ||
+|| Sound Start || - || 8 || 22 || 36 || 50 || 64 || 78 || 92 || 106 ||
+|| Sound Start Soft || - || 9 || 23 || 37 || 51 || 65 || 79 || 93 || 107 ||
+|| Sound Transpose || - || 10 || 24 || 38 || 52 || 66 || 80 || 94 || 108 ||
+|| Sound Stretch || - || 11 || 25 || 39 || 53 || 67 || 81 || 95 || 109 ||
+|| Sound Over Drive || - || 12 || 26 || 40 || 54 || 68 || 82 || 96 || 110 ||
+|| Sound Over Drive Active || - || 13 || 27 || 41 || 55 || 69 || 83 || 97 || 111 ||
+|| Sound Filter Frequency || - || 14 || 28 || 42 || 56 || 70 || 84 || 98 || 112 ||
+|| Sound Filter Active || - || 15 || 29 || 43 || 57 || 71 || 85 || 99 || 113 ||
+|| Sound Filter Resonance || - || 16 || 30 || 44 || 58 || 72 || 86 || 100 || 114 ||
+|| Sound Decay || - || 17 || 31 || 45 || 59 || 73 || 87 || 101 || 115 ||
+|| Sound Panning || - || 18 || 32 || 46 || 60 || 74 || 88 || 102 || 116 ||
+|| Sound Volume || - || 19 || 33 || 47 || 61 || 75 || 89 || 103 || 117 ||
+|| Engine All Sound Off || 120 || - || - || - || - || - || - || - || - ||
+|| Engine All Controllers Off || 121 || - || - || - || - || - || - || - || - ||
+|| Engine Local Keyboard || 122 || - || - || - || - || - || - || - || - ||
+|| Engine All Notes Off || 123 || - || - || - || - || - || - || - || - ||
+|| Engine Omni Mode Off || 124 || - || - || - || - || - || - || - || - ||
+|| Engine Omni Mode On || 125 || - || - || - || - || - || - || - || - ||
+|| Engine Mono Operation || 126 || - || - || - || - || - || - || - || - ||
+|| Engine Poly Operation || 127 || - || - || - || - || - || - || - || - ||
+
+===Channel 11===
+|| *Controller* || *Engine* || *Voice 01* || *Voice 02* || *Voice 03* || *Voice 04* || *Voice 05* || *Voice 06* || *Voice 07* || *Voice 08* ||
+|| Sound Transpose Velocity || - || 8 || 22 || 36 || 50 || 64 || 78 || 92 || 106 ||
+|| Sound Transpose Random || - || 9 || 23 || 37 || 51 || 65 || 79 || 93 || 107 ||
+|| Sound Stretch Velocity || - || 10 || 24 || 38 || 52 || 66 || 80 || 94 || 108 ||
+|| Sound Stretch Type || - || 11 || 25 || 39 || 53 || 67 || 81 || 95 || 109 ||
+|| Sound Filter Type || - || 12 || 26 || 40 || 54 || 68 || 82 || 96 || 110 ||
+|| Sound Filter Velocity || - || 13 || 27 || 41 || 55 || 69 || 83 || 97 || 111 ||
+|| Sound Filter Random || - || 14 || 28 || 42 || 56 || 70 || 84 || 98 || 112 ||
+|| Sound Decay Type || - || 15 || 29 || 43 || 57 || 71 || 85 || 99 || 113 ||
+|| Sound Panning Velocity || - || 16 || 30 || 44 || 58 || 72 || 86 || 100 || 114 ||
+|| Sound Panning Random || - || 17 || 31 || 45 || 59 || 73 || 87 || 101 || 115 ||
+|| Sound Volume Velocity || - || 18 || 32 || 46 || 60 || 74 || 88 || 102 || 116 ||
+|| Sound Muted || - || 19 || 33 || 47 || 61 || 75 || 89 || 103 || 117 ||
+|| Sound Soloed || - || 20 || 34 || 48 || 62 || 76 || 90 || 104 || 118 ||
 
 ==Modulation grid==
 This table shows the modulation capabilities, and which parameter is modulated by each of the two possible sources:
