@@ -1,0 +1,11 @@
+--- source/SoundTouch/Makefile.am	2009-12-28 18:22:40.000000000 -0300
++++ source/SoundTouch/Makefile.am	2010-12-19 20:58:16.000000000 -0300
+@@ -36,7 +36,7 @@
+ # Note by authore: '-msse2' might not work in non-X86 compilations. If someone can
+ # fix this script to automatically check for CPU architecture, please submit a patch 
+ # to me.
+-AM_CXXFLAGS=-O3 -msse2 -fcheck-new -I../../include
++AM_CXXFLAGS=-O3 -fcheck-new -I../../include
+ 
+ 
+ # other linking flags to add

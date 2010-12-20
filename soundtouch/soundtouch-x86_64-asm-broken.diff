@@ -1,0 +1,11 @@
+--- include/STTypes.h	2009-12-28 18:22:41.000000000 -0300
++++ include/STTypes.h	2010-12-19 21:12:20.000000000 -0300
+@@ -87,7 +87,7 @@
+  
+  #endif
+ 
+-    #if (WIN32 || __i386__ || __x86_64__)
++    #if (WIN32 || __i386__)
+         /// Define this to allow X86-specific assembler/intrinsic optimizations. 
+         /// Notice that library contains also usual C++ versions of each of these
+         /// these routines, so if you're having difficulties getting the optimized 
