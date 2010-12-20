@@ -1,0 +1,11 @@
+--- include/STTypes.h	2009-12-28 18:22:41.000000000 -0300
++++ include/STTypes.h	2010-12-19 21:12:20.000000000 -0300
+@@ -137,7 +137,7 @@
+         #endif
+ 
+     #endif  // INTEGER_SAMPLES
+-};
++}
+ 
+ 
+ // When this #define is active, eliminates a clicking sound when the "rate" or "pitch" 
