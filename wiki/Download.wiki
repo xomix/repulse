@@ -7,25 +7,30 @@
 ==Download the latest release==
  There is no release.
 
-==Compiling from SVN==
-
-Use this command to anonymously check out the latest project source code:
-{{{
-svn checkout http://repulse.googlecode.com/svn/trunk/ repulse
-}}}
+==Compiling==
 
 After downloading you can compile a binary like this:
 {{{
-cd repulse
+tar -xvf repulse-0.0.1.tar.bz2
+cd repulse-0.0.1
 ./build.sh
 }}}
 
 You can go on and execute repulse like this:
 {{{
-./repulse patch.xml
+./repulse -c patch.xml
 }}}
 
 ==Dependencies==
+
+ * ALSA [http://www.alsa-project.org]
  * Jack [http://jackaudio.org]
  * !SndFile [http://www.mega-nerd.com/libsndfile]
  * Secret Rabbit Code (libsamplerate) [http://www.mega-nerd.com/SRC]
+
+==Getting the SVN version==
+
+Use this command to anonymously check out the latest project source code:
+{{{
+svn checkout http://repulse.googlecode.com/svn/trunk/ repulse
+}}}
