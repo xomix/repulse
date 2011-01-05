@@ -7,7 +7,8 @@
 =Introduction=
 
 ==What is repulse?==
-Repulse is a MIDI Jack real time sampler machine that can be used to play drum kits or other sounds. It has 8 voices of polyphony and supports a rich set of parameters per voice.<br>
+Repulse is a MIDI Jack real time sampler machine that can be used to play drum kits or other sounds.<br>
+It has 8 voices of polyphony and supports a rich set of parameters per voice.<br>
 Repulse does not contain a sequencer, use any sequencer of your choice to control the sampler, try [http://www.filter24.org/seq24 Seq42] or [http://www.rosegardenmusic.com Rosegarden].
 
 ==Voice controllers==
@@ -31,10 +32,12 @@ This are some of the parameters per voice:
 
 ==Controller modulation==
 Almost any parameter can be modulated jointly by note velocity and a random source.
- * Modulating by *note velocity* you can create a velocity reactive sampler, other parameters can be modulated by velocity to achieve subtle effects.
+ * Modulating by *note velocity* you can create a velocity reactive sampler.<br>
+   Other parameters can be modulated by velocity to achieve subtle effects.
  * Modulating different parameters by the *random source*, with small values, induces an analogue feeling to the machine.
 
-You can apply random modulation to all the parameters at the same time by a minuscule value to achieve an analogue effect. Or you can turn the random modulations up to get strange effects.<br>
+You can apply random modulation to all the parameters at the same time by a minuscule value to achieve an analogue effect.<br>
+Or you can turn the random modulations up to get strange effects.<br>
 The velocity modulation can applied to uncommon parameters at the same time, like the cutoff frequency, to get interesting sounds.
 
 ==MIDI support==
