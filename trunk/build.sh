@@ -1,7 +1,7 @@
 #!/bin/bash
 
 TMP_FILE=/tmp/code
-sed 's/.*\s\s*tm\s\s*.*/__64BIT__/g' /proc/cpuinfo | grep __64BIT__&>/dev/null
+sed 's/.*\s\s*lm\s\s*.*/__64BIT__/g' /proc/cpuinfo | grep __64BIT__&>/dev/null
 [ $? == 0 ] && BIT64=1 || BIT64=0
 [ $1 ] && MODE=Debug || MODE=Release
 [ $BIT64 == 1 ] && echo "Compiling for 64 bits..." || echo "Compiling for 32 bits..."
