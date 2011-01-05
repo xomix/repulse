@@ -3,6 +3,8 @@
 #sidebar TableOfContents
 
 =Editing patches=
+You can reload the XML file by pressing CONTROL + U while repulse is running.
+
 ==Creating a patch File==
 You can create a preset by saving a text file with this content:
 
