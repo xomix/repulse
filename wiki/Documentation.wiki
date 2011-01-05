@@ -46,7 +46,7 @@ Currently the supported MIDI driver is ALSA, Jack will be added in the future.
 ==Dependencies==
  * ALSA [http://www.alsa-project.org]
  * Jack [http://jackaudio.org]
- * SndFile [http://www.mega-nerd.com/libsndfile]
+ * !SndFile [http://www.mega-nerd.com/libsndfile]
  * Secret Rabbit (libsamplerate) [http://www.mega-nerd.com/SRC]
 
 ==Compiling from SVN==
