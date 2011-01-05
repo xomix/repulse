@@ -38,4 +38,4 @@ You can achieve a real analogue feeling by slightly coupling the note velocity a
 You can edit the patch XML file and change any parameter while repulse is running. Change the _file_ attribute of the _Wave_ tag and press _CONTROL + U _, repulse will reload the XML file contents and update the wave files and any other parameter changed in the XML file; but more important you dont have to quit repulse losing all the connection work. You can edit the XML patch file to [EditingPatches rename, delete or shuffle] patches.
 
 ==Swap patches==
-The first 128 patches found in the patch file are assignable via the standard midi [Controllers controller] program change.<br>Sometimes is convenient to shuffle the first 128 pressets around. You can do this by [EditingPatches editing the patch file].
+The first 128 patches found in the patch file are assignable via the standard midi [Controllers controller] program change.<br>Sometimes is convenient to shuffle the first 128 presets around. You can do this by [EditingPatches editing the patch file].
