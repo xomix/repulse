@@ -51,7 +51,6 @@ Currently the supported MIDI driver is ALSA, Jack will be added in the future.
 
 ==Compiling from SVN==
 
-
 Use this command to anonymously check out the latest project source code:
 {{{
 svn checkout http://repulse.googlecode.com/svn/trunk/ repulse
@@ -67,15 +66,21 @@ cd repulse
 
 You can go on and execute repulse like this:
 {{{
-./repulse patch.xml
+./repulse -c patch.xml
 }}}
 
 In general you can execute:
 {{{
-repulse your_patch.xml [engine_name]
+repulse [-c] [-n jack_client_name] <patch_file>
 }}}
 
-By default the engine name is repulse. And repulse searches for wave files relative to the binary location folder.
+This are the repulse command line switches:
+ * _-c_: autoconnect the repulse stereo output to the first physical output.
+ * _-n jack_client_name_: the client name in the Jack environment.
+
+By default the engine name is repulse and the machine does not autoconnect its outputs.<br>
+So if you dont use the -c switch you have to manually connect the outputs.<br>
+Repulse searches for wave files relative to the binary location folder.
 
 =Curses GUI=
 [http://img219.imageshack.us/img219/8738/screenv001.png]
