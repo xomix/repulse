@@ -49,12 +49,7 @@ Currently the supported MIDI driver is ALSA, Jack will be added in the future.
  * !SndFile [http://www.mega-nerd.com/libsndfile]
  * Secret Rabbit (libsamplerate) [http://www.mega-nerd.com/SRC]
 
-==Compiling from SVN==
-
-Use this command to anonymously check out the latest project source code:
-{{{
-svn checkout http://repulse.googlecode.com/svn/trunk/ repulse
-}}}
+==Compiling==
 
 After downloading you can compile a binary like this:
 {{{
@@ -81,6 +76,13 @@ This are the repulse command line switches:
 By default the engine name is repulse and the machine does not autoconnect its outputs.<br>
 So if you dont use the -c switch you have to manually connect the outputs.<br>
 Repulse searches for wave files relative to the binary location folder.
+
+==Getting the SVN version==
+
+Use this command to anonymously check out the latest project source code:
+{{{
+svn checkout http://repulse.googlecode.com/svn/trunk/ repulse
+}}}
 
 =Curses GUI=
 [http://img219.imageshack.us/img219/8738/screenv001.png]
