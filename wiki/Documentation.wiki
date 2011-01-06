@@ -32,8 +32,7 @@ This are some of the parameters per voice:
 
 ==Controller modulation==
 Almost any parameter can be modulated jointly by note velocity and a random source.
- * Modulating by *note velocity* you can create a velocity reactive sampler.<br>
-   Other parameters can be modulated by velocity to achieve subtle effects.
+ * Modulating by *note velocity* you can create a velocity reactive sampler.<br>Other parameters can be modulated by velocity to achieve subtle effects.
  * Modulating different parameters by the *random source*, with small values, induces an analogue feeling to the machine.
 
 You can apply random modulation to all the parameters at the same time by a minuscule value to achieve an analogue effect.<br>
@@ -80,7 +79,7 @@ By default the engine name is repulse and the machine does not autoconnect its o
 So if you dont use the -c switch you have to manually connect the outputs.<br>
 Repulse searches for wave files relative to the binary location folder.
 
-==Getting the SVN version==
+==Downloading the SVN version==
 
 Use this command to anonymously check out the latest project source code:
 {{{
