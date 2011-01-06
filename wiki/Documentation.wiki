@@ -285,7 +285,7 @@ Be sure to check this page to get some interesting ideas on how to use the machi
 =Utilised libraries=
 This software depends on a number of great libraries:
 
- * [http://www.alsa-project.org Alsa] Audio and MIDI functionality.
+ * [http://www.alsa-project.org ALSA] Audio and MIDI functionality.
  * [http://jackaudio.org Jack] Real-time, low latency audio and MIDI.
  * [http://www.mega-nerd.com/libsndfile SndFile] An unified sound file access library.
  * [http://www.mega-nerd.com/SRC Secret Rabbit Code] A samplerate conversion library (libsamplerate),
