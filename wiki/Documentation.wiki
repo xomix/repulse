@@ -15,7 +15,8 @@ Repulse does not contain a sequencer, use any sequencer of your choice to contro
 This are some of the parameters per voice:
  * _Start time:_ delays the start time of the sound the given miliseconds.
  * _Transpose:_ transpose the sound the given octaves.
- * _Time Stretch:_ stretch the sound by the given percentage (the pitch does not change), you have different time stretch types to choose from.
+ * _Time Stretch:_ stretch the sound by the given percentage (the pitch does not change).<br>
+   You have different time stretch types to choose from.
  * _Staturation:_ introduce analog like saturation into the sound.
  * _Filtering:_ you have five types to choose from with controllable cutoff and resonance:
   * Low pass.
