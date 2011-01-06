@@ -28,7 +28,7 @@ You can go on and execute repulse like this:
  * !SndFile [http://www.mega-nerd.com/libsndfile]
  * Secret Rabbit Code (libsamplerate) [http://www.mega-nerd.com/SRC]
 
-==Getting the SVN version==
+==Downloading the SVN version==
 
 Use this command to anonymously check out the latest project source code:
 {{{
