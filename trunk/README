@@ -1,8 +1,613 @@
+Repulse v0.0.1 reference manual and documentation
 
-Compiling, from this same directory:
+    * Introduction
+          o What is repulse?
+          o Voice controllers
+          o Controller modulation
+          o MIDI support
+    * Installing
+          o Dependencies
+          o Compiling
+          o Executing
+          o Downloading the SVN version
+    * Curses GUI
+          o Keyboard controls
+          o Engine DSP controllers
+          o Voice DSP controllers
+    * MIDI controllers
+          o Engine controllers
+          o Voice controllers
+                + Channel 10
+                + Channel 11
+          o Modulation grid
+    * Editing patches
+          o Creating a patch File
+          o Deleting patches
+          o Renaming patches
+          o Swapping patches
+    * Tips and Tricks
+          o Use the overdrive to get an analogue feeling
+          o Create a velocity responsive sampler
+          o Try different envelopes
+          o Join the voices 7 and 8
+          o Filter the metal section
+          o Tune the samples
+          o Randomize some parameters
+          o Reload the patch file
+          o Swap patches
+    * Utilised libraries
+    * Team
 
- $ cd Debug
- $ make
+Introduction
+============
 
-Running, from this same directory:
- $ Debug/repulse patch.xml
+What is repulse?
+----------------
+
+Repulse is a MIDI Jack real time sampler machine that can be used to play 
+drum kits or other sounds.
+It has 8 voices of polyphony and supports a rich set of parameters per voice.
+Repulse does not contain a sequencer, use any sequencer of your choice to 
+control the sampler, try:
+
+ o Seq24. http://www.filter24.org/seq24
+ o Rosegarden. http://www.rosegardenmusic.com
+
+
+Voice controllers
+-----------------
+
+This are some of the parameters per voice:
+
+ o Start time: delays the start time of the sound the given miliseconds.
+ o Transpose: transpose the sound the given octaves.
+ o Time Stretch: stretch the sound by the given percentage 
+   (the pitch does not change).
+   You have different time stretch types to choose from.
+ o Staturation: introduce analog like saturation into the sound.
+ o Filtering: you have five types to choose from with controllable 
+   cutoff and resonance:
+  * Low pass.
+  * High pass.
+  * Band pass 1.
+  * Band pass 2.
+  * Notch
+ o Envelope: you have three envelopes to choose from, with a tuneable 
+   decay time:
+  * Infinite: does not apply any envelope.
+  * Trigger: also known as one shot, starts the decay envelope on 
+    note on event.
+  * Gate: starts the decay after the note off event.
+ o Panning: pan the voice to the left or the right in the stereo output.
+ o Volume: adjusts the output volume of the voice.
+
+
+Controller modulation
+---------------------
+
+Almost any parameter can be modulated jointly by note velocity and a
+random source:
+
+ o Modulating by note velocity you can create a velocity reactive sampler.
+   Other parameters can be modulated by velocity to achieve subtle effects.
+ o Modulating different parameters by the random source, with small values,
+   induces an analogue feeling to the machine.
+
+You can apply random modulation to all the parameters at the same time 
+by a minuscule value to achieve an analogue effect.
+Or you can turn the random modulations up to get strange effects.
+The velocity modulation can applied to uncommon parameters at the same time,
+like the cutoff frequency, to get interesting sounds.
+
+
+MIDI support
+------------
+
+You can drive any parameter that you can see in the GUI with a midi controller.
+You can check the [Controllers] page to see the detailed controller mappings.
+The MIDI support is quite good with repulse responding to the program change,
+all controllers/notes off, omni, poly, volume and plenty of other custom events.
+Currently the supported MIDI driver is ALSA, Jack will be added in the future.
+
+
+Installing
+==========
+
+Dependencies
+------------
+
+ o ALSA. http://www.alsa-project.org
+ o Jack. http://jackaudio.org
+ o SndFile. http://www.mega-nerd.com/libsndfile
+ o Secret Rabbit (libsamplerate). http://www.mega-nerd.com/SRC
+
+
+Compiling
+---------
+
+After downloading you can compile a binary like this:
+
+ $ cd repulse
+ $ ./build.sh
+
+
+Executing
+---------
+
+You can go on and execute repulse like this:
+
+ $ ./repulse -c patch.xml
+
+In general you can execute:
+
+ $ repulse [-c] [-n jackclientname] <patch_file>
+
+This are the repulse command line switches:
+
+ o -c: autoconnect the repulse stereo output to the first physical output.
+ o -n jack_client_name: the client name in the Jack environment.
+
+By default the engine name is repulse and the machine does not autoconnect
+its outputs.
+So if you dont use the -c switch you have to manually connect the outputs.
+Repulse searches for wave files relative to the binary location folder.
+
+
+Downloading the SVN version
+---------------------------
+
+Use this command to anonymously check out the latest project source code:
+
+ $ svn checkout http://repulse.googlecode.com/svn/trunk/ repulse
+
+
+Curses GUI
+==========
+
+Keyboard controls
+-----------------
+
+ o Arrow keys: moves the cursor in the spread-sheet like grid.
+ o A key: tune the selected cell parmeter up.
+ o Z key: tune the selected cell parmeter down.
+ o S key: tune the selected cell parmeter up, finer increment.
+ o X key: tune the selected cell parmeter down, finer decrement.
+ o + key: increment the selected preset number.
+ o - key: decrement the selected preset number.
+ o CONTROL + N: create a new preset.
+ o CONTROL + B: save the current preset.
+ o CONTROL + R: recall the currently selected preset.
+ o CONTROL + L: local on/off toggle.
+   * When active the machine will interpret its control surface 
+     events and MIDI events.
+   * When deactivated the machine will interpret only MIDI events.
+ o CONTROL + W: alternate wheel toggle.
+   * when activated the pitch bend wheel controls the engine's 
+     time stretch value.
+   * When deactivated the pitch bend wheel controls the engine's 
+     transpose value.
+ o CONTROL + O: omni on/off toggle.
+   * When activated the machine will receive MIDI events in any channel.
+   * When deactivated the machine will receive MIDI events only the 
+     base channel (10).
+ o CONTROL + V: Mono on/off toggle.
+   * When activated the machine operates in mono and does not mix-down 
+     the stereo channel.
+   * When deactivated the machine operates in mono and does the mix-down 
+     of the stereo channel.
+ o CONTROL + E: quits the software.
+ o CONTROL + T: changes the MIDI base note, by default it is 60 (middle c).
+ o CONTROL + J: changes the MIDI base channel, by default it is the channel 10.
+
+
+Engine DSP controllers
+----------------------
+
+ o Transpose: apply a pitch transposition by the given octaves to all voices.
+ o Stretch: time-stretch (does not change pitch) all voices by the given 
+   percentage.
+ o Volume: decrease or increase the voice gain.
+
+
+Voice DSP controllers
+---------------------
+
+ o Start: advance the sample start point by the given miliseconds.
+ o Soft Start: apply a quick attack envelope to the sound start.
+ o Transpose: apply a pitch transposition by the given octaves.
+ o Transpose Velocity: affect the transpose value by the note's velocity 
+   (by this percentage).
+ o Transpose Random: affect the transpose value by a random source 
+   (by this percentage).
+ o Stretch: time-stretch (does not change pitch) the voice by the given 
+   percentage.
+ o Stretch Velocity: affect the stretch value by the note's velocity 
+   (by this percentage).
+ o Stretch Type: choose from a set of time-stretch types to suit your 
+   sound's needs.
+  * Auto: should suit any sound type automatically.
+  * Speech: this type is well suited for speech sounds.
+  * Type 1: alternative mode to choose from.
+  * Type 2: alternative mode to choose from.
+ o Over Drive: overdrives the sound by the given amount, you have to 
+   activate the Saturation toggle.
+ o Saturate: activates the saturation of the sound by the given 
+   Over Drive amount.
+ o Filter Frequency: middle point frequency for the different filters.
+ o Filter: activate or deactivate the filter.
+ o Filter Type: there are five types of filter to choose from.
+  * Low Pass filter.
+  * High Pass filter.
+  * Band Pass 1 filter.
+  * Band Pass 2 filter (an alternative implementation).
+  * Notch filter.
+ o Filter Resonance: controls the filter resonance value.
+ o Filter Velocity: affect the filter frequency value by the note's 
+   velocity (by this percentage).
+ o Filter Random: affect the filter frequency value by a random 
+   source (by this percentage).
+ o Decay: sets the envelope decay time in seconds
+ o Decay Envelope: there are three envelope types to choose from.
+  * Infinite: no envelope applied when this type is selected, 
+    the voice 'just' plays.
+  * Trigger: the decay envelope starts after a note on event.
+  * Gate: the decay envelope starts after a note off event.
+ o Panning: displaces the voice to the left or right of the stereo mix.
+ o Panning Velocity: affect the panning value by the note's velocity 
+   (by this percentage).
+ o Panning Random: affect the panning value by a random source 
+   (by this percentage).
+ o Volume: decrease or increase the voice gain.
+ o Volume Velocity: affect the volume value by the note's velocity 
+   (by this percentage).
+ o Mute: mute the selected voice.
+ o Solo: solo the selected voice.
+ o Join: stops the voice 7 when the voice 8 is started and viceversa.
+
+
+MIDI controllers
+================
+
+Engine controllers
+------------------
+
+This are the controllers for the repulse engine, it listens to this 
+controllers on the base channel 10 and 11
+Only the engine controllers are listened on any channel (omni).
+
+ o You can send a Program Change to select between the first 128 presets 
+   in the machine.
+ o Sliding the Pitch Wheel MIDI controller it is possible to apply a pitch 
+   transposition to all the voices.
+ o You can switch the Wheel toggle to make the Pitch Wheel control the 
+   overall time-stretch.
+
+| Name                | #   | Description                                      |
++---------------------+-----+--------------------------------------------------+
+| Program Change      | -   | Select a program between the 128 first contained |
+|                     | -   | in the machine.                                  |
+| Pitch Wheel         | -   | Apply a pitch transposition by the given octaves |
+|                     | -   | to all the voices.                               |
+| Linked              | 2   | Stops the voice 7 when the voice 8 is started    |
+|                     | -   | and viceversa (on/off).                          |
+| Trranspose          | 4   | Apply a pitch transposition by the given octaves |
+|                     | -   | to all the voices (signed).                      |
+| Stretch             | 5   | Apply time-stretch by the given percentage to    | 
+|                     | -   | all the voices (signed).                         |
+| Volume              | 7   | Decrease or increase the voice gain.             |
+| All Sound Off       | 120 | Turns all the voices off (on/off).               |
+| All Controllers Off | 121 | Resets all the machine parameters to a default   |
+|                     | -   | state (on/off).                                  |
+| Local Keyboard      | 122 | When activated the machine will interpret MIDI   |
+|                     | -   | events and local surface events (on/off).        |
+| All Notes Off       | 123 | Turns all the voices off and sends a note off    |
+|                     | -   | event to each voice (on/off).                    |
+| Omni Mode Off       | 124 | Listen MIDI events only on channels 10 and 11    |
+|                     | -   | (on/off).                                        |
+| Omni Mode On        | 125 | Listen MIDI events on any channel (on/off).      |                                        |
+| Mono Operation      | 126 | Disable the stereo mix-down (on/off).            |                                       |
+| Poly Operation      | 127 | Enable the stereo mix-down (on/off).             |                                       |
+
+
+Voice controllers
+-----------------
+
+Almost every parameter in the machine can be controlled via MIDI.
+The number of controllers spans two midi channels, base channels 10 and 11.
+In MIDI channel 10 you have the common controllers, in MIDI channel 11 you 
+can find the modulation controllers.
+The omni switch does not affect the voice controllers, you have to send them in 
+their own channel (base channel 10 and 11).
+The engine related controllers can received in omni (view the previous table).
+
+ o The machine always receives voice controllers on channels 10 and 11. 
+   The MIDI base channel can be changed via the GUI.
+ o The machine receives note on message for the MIDI notes 60 to 67. 
+   The MIDI base note can be changed via the GUI.
+
+This is the full list of voice (and engine) controllers:
+
+
+Channel 10
+..........
+
+|                            |     | Voice01 | Voice03 | Voice05 | Voice07   |
+| Controller                 | Engine   | Voice02 | Voice04 | Voice06  | Voice08
++----------------------------+-----+----+----+----+----+----+----+-----+-----+
+| Engine Linked              | 2   | -  | -  | -  | -  | -  | -  | -   | -   |
+| Engine Transpose           | 4   | -  | -  | -  | -  | -  | -  | -   | -   |
+| Engine Stretch             | 5   | -  | -  | -  | -  | -  | -  | -   | -   |
+| Engine Volume              | 7   | -  | -  | -  | -  | -  | -  | -   | -   |
+| Sound Start                | -   | 8  | 22 | 36 | 50 | 64 | 78 | 92  | 106 |
+| Sound Start Soft           | -   | 9  | 23 | 37 | 51 | 65 | 79 | 93  | 107 |
+| Sound Transpose            | -   | 10 | 24 | 38 | 52 | 66 | 80 | 94  | 108 |
+| Sound Stretch              | -   | 11 | 25 | 39 | 53 | 67 | 81 | 95  | 109 |
+| Sound Over Drive           | -   | 12 | 26 | 40 | 54 | 68 | 82 | 96  | 110 |
+| Sound Over Drive Active    | -   | 13 | 27 | 41 | 55 | 69 | 83 | 97  | 111 |
+| Sound Filter Frequency     | -   | 14 | 28 | 42 | 56 | 70 | 84 | 98  | 112 |
+| Sound Filter Active        | -   | 15 | 29 | 43 | 57 | 71 | 85 | 99  | 113 |
+| Sound Filter Resonance     | -   | 16 | 30 | 44 | 58 | 72 | 86 | 100 | 114 |
+| Sound Decay                | -   | 17 | 31 | 45 | 59 | 73 | 87 | 101 | 115 |
+| Sound Panning              | -   | 18 | 32 | 46 | 60 | 74 | 88 | 102 | 116 |
+| Sound Volume               | -   | 19 | 33 | 47 | 61 | 75 | 89 | 103 | 117 |
+| Engine All Sound Off       | 120 | -  | -  | -  | -  | -  | -  | -   | -   |
+| Engine All Controllers Off | 121 | -  | -  | -  | -  | -  | -  | -   | -   |
+| Engine Local Keyboard      | 122 | -  | -  | -  | -  | -  | -  | -   | -   |
+| Engine All Notes Off       | 123 | -  | -  | -  | -  | -  | -  | -   | -   |
+| Engine Omni Mode Off       | 124 | -  | -  | -  | -  | -  | -  | -   | -   |
+| Engine Omni Mode On        | 125 | -  | -  | -  | -  | -  | -  | -   | -   |
+| Engine Mono Operation      | 126 | -  | -  | -  | -  | -  | -  | -   | -   |
+| Engine Poly Operation      | 127 | -  | -  | -  | -  | -  | -  | -   | -   |
+
+
+Channel 11
+..........
+
+|                          |   | Voice01 | Voice03 | Voice05 | Voice07   |
+| Controller               | Engine | Voice02 | Voice04 | Voice06  | Voice08
++--------------------------+---+----+----+----+----+----+----+-----+-----+
+| Sound Transpose Velocity | - | 8  | 22 | 36 | 50 | 64 | 78 | 92  | 106 |
+| Sound Transpose Random   | - | 9  | 23 | 37 | 51 | 65 | 79 | 93  | 107 |
+| Sound Stretch Velocity   | - | 10 | 24 | 38 | 52 | 66 | 80 | 94  | 108 |
+| Sound Stretch Type       | - | 11 | 25 | 39 | 53 | 67 | 81 | 95  | 109 |
+| Sound Filter Type        | - | 12 | 26 | 40 | 54 | 68 | 82 | 96  | 110 |
+| Sound Filter Velocity    | - | 13 | 27 | 41 | 55 | 69 | 83 | 97  | 111 |
+| Sound Filter Random      | - | 14 | 28 | 42 | 56 | 70 | 84 | 98  | 112 |
+| Sound Decay Type         | - | 15 | 29 | 43 | 57 | 71 | 85 | 99  | 113 |
+| Sound Panning Velocity   | - | 16 | 30 | 44 | 58 | 72 | 86 | 100 | 114 |
+| Sound Panning Random     | - | 17 | 31 | 45 | 59 | 73 | 87 | 101 | 115 |
+| Sound Volume Velocity    | - | 18 | 32 | 46 | 60 | 74 | 88 | 102 | 116 |
+| Sound Muted              | - | 19 | 33 | 47 | 61 | 75 | 89 | 103 | 117 |
+| Sound Soloed             | - | 20 | 34 | 48 | 62 | 76 | 90 | 104 | 118 |
+
+
+Modulation grid
+---------------
+
+This table shows the modulation capabilities, and which parameter is modulated 
+by each of the two possible sources:
+
+|                  | Note     | Random |
+| Parameter        | Velocity | Source |
++------------------+----------+--------+
+| Transpose        | x        | x      |
+| Stretch          | x        |        |
+| Filter Frequency | x        | x      |
+| Panning          | x        | x      |
+| Volume           | x        |        |
+
+
+Editing patches
+===============
+
+Tip: you can reload the XML file by pressing CONTROL + U while repulse 
+     is running.
+
+Creating a patch File
+---------------------
+
+You can create a preset by saving a text file with this content:
+
+ <Repulse>
+    <Waves>
+        <Wave file="909/BT7A0DA.WAV" />
+        <Wave file="909/RIDED2.WAV" />
+        <Wave file="909/ST7T7S7.WAV" />
+        <Wave file="909/HANDCLP1.WAV" />
+        <Wave file="909/RIM63.WAV" />
+        <Wave file="909/LT0D0.WAV" />
+        <Wave file="909/HHCDA.WAV" />
+        <Wave file="909/HHODA.WAV" />
+    </Waves>
+ </Repulse>
+
+And introducing a file value that corresponds to the location of your 
+wave files.
+The machine will look for wave files relative to the XML file directory, 
+you can enter absolute paths too.
+
+Deleting patches
+----------------
+
+You can delete a whole preset by removing its XML block:
+
+ <Presets>
+    <Preset name="Preset 1"><!-- other tags --></Preset>
+    <Preset name="Preset 2"><!-- other tags --></Preset>
+ </Presets>
+
+Becomes:
+
+ <Presets>
+    <Preset name="Preset 1"><!-- other tags --></Preset>
+ </Presets>
+
+
+Renaming patches
+----------------
+
+You can rename a preset by changing its name attribute:
+
+ <Preset name="Preset 1"><!-- other tags --></Preset>
+
+Becomes:
+
+ <Preset name="My Preset"><!-- other tags --></Preset>
+
+
+Swapping patches
+----------------
+
+The first 128 patches found in the XML are assignable via the standard 
+midi controller program change.
+Sometimes is convenient to shuffle the first 128 pressets around.
+
+You can do this by simply swapping the preset tags:
+
+ <Presets>
+    <Preset name="Preset 1"><!-- other tags --></Preset>
+    <Preset name="Preset 2"><!-- other tags --></Preset>
+    <Preset name="Preset 3"><!-- other tags --></Preset>
+ </Presets>
+
+Becomes:
+
+ <Presets>
+    <Preset name="Preset 2"><!-- other tags --></Preset>
+    <Preset name="Preset 1"><!-- other tags --></Preset>
+    <Preset name="Preset 3"><!-- other tags --></Preset>
+ </Presets>
+
+
+Tips and Tricks
+===============
+
+Use the overdrive to get an analogue feeling
+--------------------------------------------
+
+Drive        2.20      1.00      1.00      1.00      1.00      1.00      1.00      1.00
+Sat           [o]       [ ]       [ ]       [ ]       [ ]       [ ]       [ ]       [ ]
+
+In this case the overdrive of the first voice is incremented and the saturation 
+is activated. The first voice contains a bass drum sound.
+
+
+Create a velocity responsive sampler
+------------------------------------
+
+Velocity  100.00%   100.00%   100.00%   100.00%   100.00%   100.00%   100.00%   100.00%
+
+By incrementing all the volume velocity modulations you can create a fully 
+velocity responsive sampler. This is interesting if you want to edit 
+the velocity 
+in your sequencer, or use an external midi controller with pads.
+
+
+Try different envelopes
+-----------------------
+
+Decay      2.00 s    0.40s    2.00 s    2.00 s    2.00 s    2.00 s    2.00 s     2.00 s
+Type     infinite     gate  infinite  infinite  infinite  infinite  infinite   infinite
+
+We have applied a gate decay envelope type (turns the envelope on after 
+the note off event) 
+to the ride cymbal (voice 2), with a short decay.
+
+
+Join the voices 7 and 8
+-----------------------
+
+Linked                                                           [o]       [o]      [o]
+
+Emulates the voice response of an old drum machine. Turning on the voice 7, 
+turns off the voice 8, and viceversa. If you insert hi-hat like samples 
+in the last two voices you can emulate a machine with one voice of polyphony 
+for two samples. Having two samples linked to one voice
+
+
+Filter the metal section
+------------------------
+
+Freq     30.00 Hz  30.00 Hz  30.00 Hz  30.00 Hz  30.00 Hz  30.00 Hz 230.00 Hz 230.00 Hz
+Filter        [ ]       [ ]       [ ]       [ ]       [ ]       [ ]       [o]       [o]
+Type           lp        lp        lp        lp        lp        lp        hp        hp
+
+You can make the metal section lighter or heavier by activating the filter 
+option and selecting a low pass, or any other, filter and adjusting the 
+frequency a bit.
+
+
+Tune the samples
+----------------
+
+Transpose    1 st     -1 st      0 st      0 st      0 st      0 st     -1 st     -1 st
+
+This time we have transposed down the ride cymbal and the hi-hats by one 
+octave, and transposed up the bass drum by one octave. This way new 
+registers of the samples can be explored.
+
+
+Randomize some parameters
+-------------------------
+
+You can achieve a real analogue feeling by slightly coupling the note 
+velocity and random source to multiple parameters, this way the machine 
+never really does the same thing two times...
+ 
+ o Change the Velocity and Random parameters for the Transpose section,
+   set them to 0.20 % for the Voices 1, 7 and 8 (The ride cymnbal and 
+   hi-hats). This way the pitch of this instruments is altered
+   by a small factor by the key velocity and a random source.
+ o Add a small random variation to the filter frequency of voices 7 
+   and 8, set the Random value of the Filter section to 0.20%.
+   This way the filter frequency will constantly change by a small 
+   random factor.
+
+Reload the patch file
+---------------------
+You can edit the patch XML file and change any parameter while repulse 
+is running. 
+Change the file attribute of the Wave tag and press CONTROL + U, repulse 
+will reload the XML file contents and update the wave files and any other 
+parameter changed in the XML file; but more important you dont have to 
+quit repulse losing all the connection work. 
+You can edit the XML patch file to rename, delete or shuffle patches.
+
+
+Swap patches
+------------
+The first 128 patches found in the patch file are assignable via the 
+standard midi controller program change.
+Sometimes is convenient to shuffle the first 128 presets around. 
+You can do this by editing the XML patch file.
+
+
+Utilised libraries
+==================
+
+This software depends on a number of great libraries:
+
+ o ALSA: Audio and MIDI functionality. 
+   http://www.alsa-project.org
+ o Jack: Real-time, low latency audio and MIDI. 
+   http://jackaudio.org
+ o SndFile: An unified sound file access library.
+   http://www.mega-nerd.com/libsndfile
+ o Secret Rabbit Code: A samplerate conversion library (libsamplerate).
+   http://www.mega-nerd.com/SRC
+ o SoundTouch: SOLA time stretching library.
+   http://www.surina.net/soundtouch
+ o TinyXML: A small XML library.
+   http://www.grinninglizard.com/tinyxml
+ o SFMT: A fast Merssene Twister implementation.
+   http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/SFMT
+
+
+Team
+====
+
+This is the great team the makes repulse possible:
+
+ o Jaume Aguilera: adviser and tester.
+ o Juan Carlos Rodrigo: lead coder and tester.
+
